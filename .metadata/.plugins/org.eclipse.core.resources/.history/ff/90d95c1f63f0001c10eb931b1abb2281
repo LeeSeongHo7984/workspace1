@@ -1,0 +1,11 @@
+package com.varxyz.banking.domain;
+
+public class CustomerServiceTest {
+	public static void main(String[] args) {
+		CustomerService customerService;
+		customerService.addCustomer();
+//		customerService.getCustomerByssn();
+//		customerService.getAllCustomers();
+//		customerService.getNumOfCustomers();
+	}
+}

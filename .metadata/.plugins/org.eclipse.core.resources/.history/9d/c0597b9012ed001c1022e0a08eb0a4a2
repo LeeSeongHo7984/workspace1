@@ -1,0 +1,43 @@
+package com.varxyz.banking.mod001;
+
+class Song {
+	String songName;
+	String songType;
+	
+	void set_song(String _songName, String _songType) {
+		songName = _songName;
+		songType = _songType;
+	}
+}
+
+class Singer {
+	String singer;
+	Song song;	// Song라는 타입의 song이라는 이름으로 초기화
+	
+	void set_singer(String _singer) {
+		singer = _singer;
+	}
+	
+	void hit_song(Song _song) {	// set_song에서 만들어진 메소드가 hit_song 메소드에 파라미터로 들어감
+		song = _song;
+	}
+	
+	void print_singer() {
+		System.out.println("가수이름: " + singer);
+		System.out.println("노래제목: " + song.songName+"("+song.songType+")");
+	}
+	
+}
+
+public class Test2 {
+	public static void main(String[] args) {
+		Song song = new Song();
+		song.set_song("가나다", "댄스");
+		
+		Singer singer = new Singer();
+		singer.set_singer("에이비씨");
+		singer.hit_song(song);
+		
+		singer.print_singer();
+	}
+}

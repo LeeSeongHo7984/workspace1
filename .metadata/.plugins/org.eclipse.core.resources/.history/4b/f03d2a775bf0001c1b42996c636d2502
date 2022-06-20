@@ -1,0 +1,14 @@
+package com.varxyz.banking.service;
+
+import java.util.*;
+
+import com.varxyz.banking.domain.Customer;
+
+public class CustomerService {
+	void addCustomer(Customer customer) {
+		Customer getCustomerBySsn(String ssn);
+		List<customer> getAllCustomers();
+		int getNumOfCustomers();
+	}
+}
+

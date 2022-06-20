@@ -1,0 +1,13 @@
+package com.varxyz.jv200.mod007;
+
+public class LeastCommonMultiple {
+	public int CommonMultiple(int num) {
+		int tempNum = num;	// 파라미터로 받는 숫자를 tempNum에 넣음
+		int quotient = 0;
+		for (int i = 2; i < num; i++) {
+			if( tempNum % i == 0 ) {
+				quotient = i;
+			}
+		}
+	}
+}

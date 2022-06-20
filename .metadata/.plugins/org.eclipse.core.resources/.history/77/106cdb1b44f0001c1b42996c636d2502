@@ -1,0 +1,14 @@
+package com.varxyz.jv200.mod009;
+
+import java.util.*;
+
+public class MapExample {
+	public static void main(String[] args) {
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		map.put(new Integer(1), "유비");
+		map.put(new Integer(2), "관우");
+		map.put(new Integer(3), "장비");
+		
+		System.out.println(map.get(new Integer(2)));
+	}
+}

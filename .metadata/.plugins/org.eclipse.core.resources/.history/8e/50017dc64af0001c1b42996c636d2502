@@ -1,0 +1,24 @@
+package com.varxyz.banking.domain;
+
+public class CustomerService {
+	String Customer;
+	String CustomerBySSn;
+	String AllCustomers;
+	String NumOfCustomers;
+	
+	public void addCustomer(String Customer) {
+		
+	}
+	
+	public void getCustomerBySsn(String CustomerBySSn) {
+		
+	}
+	
+	public void getAllCustomers(String AllCustomers) {
+		
+	}
+	
+	public void getNumOfCustomers(String NumOfCustomers) {
+		
+	}
+}

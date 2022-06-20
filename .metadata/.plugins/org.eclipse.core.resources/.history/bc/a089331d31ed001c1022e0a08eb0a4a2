@@ -1,0 +1,34 @@
+package com.varxyz.jv200.mod007;
+
+public class Libary {
+	
+	private Libary() {
+		
+	}
+	
+	String bookName;
+	String author;
+	int bookSave = 100;
+	int bookSaveX = bookSave * 2;
+	int serial = 0;
+	
+	public int getBook() {
+		return serial;
+	}
+	
+	public void setBook(int serial) {
+		this.serial = serial;
+		
+		if ( serial < bookSave ) {
+			bookSave = bookSaveX;
+			System.out.println(bookSave);
+		}
+	}
+	
+	public void addBook(Book book) {
+		bookName = this.bookName;
+		author = this.author;
+	}
+
+}
+

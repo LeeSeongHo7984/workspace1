@@ -1,0 +1,5 @@
+package com.varxyz.banking.domain;
+
+public class SavingsAccount extends Account{
+	private double interestRate;
+}

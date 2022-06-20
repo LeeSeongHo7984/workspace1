@@ -1,0 +1,6 @@
+package com.varxyz.jv200.mod007;
+
+public class BookTest {
+	Book b = new Lirbary();
+	b.getBook();
+}

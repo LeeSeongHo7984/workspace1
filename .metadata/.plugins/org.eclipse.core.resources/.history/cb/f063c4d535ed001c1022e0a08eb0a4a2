@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mod007;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class BookTest {
+	public static void main(String[] args) {
+		
+	}
+}

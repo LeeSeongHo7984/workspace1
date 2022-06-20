@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mod007;
+
+class Book {
+	String bookName;
+	String author;
+	
+	public void addBook(String bookName, String author) {
+		bookName = this.bookName;
+		author = this.author;
+	}
+}

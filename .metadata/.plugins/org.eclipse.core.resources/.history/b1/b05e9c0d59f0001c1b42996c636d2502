@@ -1,0 +1,5 @@
+package com.varxyz.banking.domain;
+
+public class CustomerServiceImpl2 implements CustomerService {
+	private List<Customer> customerList = new ArrayList<>();
+}

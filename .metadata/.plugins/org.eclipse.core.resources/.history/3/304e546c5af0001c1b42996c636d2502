@@ -1,0 +1,39 @@
+package com.varxyz.banking.domain;
+
+import java.util.*;
+
+public class CustomerServiceImpl2 implements CustomerService {
+	private List<Customer> customerList = new ArrayList<>();
+	
+//	private boolean isExist(Customer customer) {
+//		while(Customer c : customerList) {
+//			if(customer.getSsn().equals(c.getSsn())) {
+//				return customer.getSsn();
+//			}
+//		}
+//		return false;
+//	}
+	
+	@Override
+	public void addCustomer(Customer customer) {
+		if(getCustomerBySSn(customer.getSsn()) == null ) {
+			customerList.add(customer);
+		}
+	}
+	
+	@Override
+	public Customer getCustomerBySsn(String ssn) {
+		for(Customer c : customerList) {
+			if(ssn.equals(c.getSsn()));
+			return c;
+		}
+		return null;
+	}
+	
+	@Override
+	public Collection<Customer> getAllCustomers() {
+		return customerList;
+	}
+	
+	
+}

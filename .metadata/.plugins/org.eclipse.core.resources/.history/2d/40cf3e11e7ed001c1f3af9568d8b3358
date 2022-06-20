@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mod008;
+
+public class PrimeException extends Exception {
+	public PrimeException() {
+	
+	}		
+	
+	PrimeException(String message) {
+		super(message);
+	}
+}

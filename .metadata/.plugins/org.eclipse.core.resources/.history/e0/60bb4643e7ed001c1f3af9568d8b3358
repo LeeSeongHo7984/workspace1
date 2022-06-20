@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mod008;
+
+public class MyException extends Exception {
+	public MyException() {
+		
+	}
+	
+	MyException(String message) {
+		super(message);
+	}
+}

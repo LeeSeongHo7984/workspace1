@@ -1,0 +1,9 @@
+package com.varxyz.banking.domain;
+
+public class SavingsAccount extends Account{
+	private double interestRate;	// 이자율
+	
+	public void deposite(double amount) {	// 예금
+		
+	}
+}

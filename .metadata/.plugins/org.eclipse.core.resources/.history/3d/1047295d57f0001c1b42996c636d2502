@@ -1,0 +1,17 @@
+package com.varxyz.banking.domain;
+
+import java.util.*;
+
+public class CustomerService extends Customer{
+	String Customer;
+	String CustomerBySSn;
+	String AllCustomers;
+	String NumOfCustomers;
+	
+	public CustomerService(String Customer, String CustomerBySSn, String AllCustomers, String NumOfCustomers) {
+		this.Customer = Customer;
+		this.CustomerBySSn = CustomerBySSn;
+		this.AllCustomers = AllCustomers;
+		this.NumOfCustomers = NumOfCustomers;
+	}
+}
