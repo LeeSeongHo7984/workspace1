@@ -22,4 +22,8 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.service.CustomerService"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.domain.Customer"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="com.varxyz.banking.domain.CustomerService"/>
+    <fullyQualifiedTypeName name="com.varxyz.banking.domain.CustomerServiceImpl"/>
+    <fullyQualifiedTypeName name="com.varxyz.banking.domain.AccountServiceImpl"/>
 </qualifiedTypeNameHistroy>

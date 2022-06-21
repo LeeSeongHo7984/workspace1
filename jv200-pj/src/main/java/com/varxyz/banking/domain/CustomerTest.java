@@ -10,8 +10,12 @@ public class CustomerTest {
 		c.setCustomerId("LeeSeongHo");
 		c.setPasswd("1234");
 		
-		CustomerService c1 = new CustomerServiceImpl();	// interface는 객체를 만들지 못하므로 
-		// 다형성을 이용하여 객체 "구현"
+		Account a = new Account();
+		AccountServiceImpl.getInstance().addAccount(a);
+		System.out.println(a);
+//		CustomerService c1 = new CustomerServiceImpl();	
+		// interface는 객체를 만들지 못하므로 다형성을 이용하여 객체 "구현"
+		
 		c1.addCustomer(c);	// CustomerServiceTmpl에 Customer c에 담겨져 있는 정보를 전달
 		c1.getCustomerByssn("1234");	// CustomerServiceTmpl 안에 있는 메소드 호출
 		

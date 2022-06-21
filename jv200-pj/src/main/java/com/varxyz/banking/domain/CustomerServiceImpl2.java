@@ -7,20 +7,20 @@ import java.util.List;
 
 //List로 처리
 public class CustomerServiceImpl2 implements CustomerService {
-   private List<Customer> customerList = new ArrayList<>();
+   private List<Customer> customerList = new ArrayList<>();	// customerList 생성
 
    @Override
    public void addCustomer(Customer customer) {
       if(getCustomerByssn(customer.getSsn()) == null) {
-         customerList.add(customer);
+         customerList.add(customer);	//customerList에 customer 값들을 추가
       }
       
    }
 
    @Override
    public Customer getCustomerByssn(String ssn) {
-      for(Customer c : customerList) {
-         if(ssn.equals(c.getSsn())) {
+      for(Customer c : customerList) {	// 객체 c에 값과 customer 값들이 추가된 customerLis의 값들을 각각 비교
+         if(ssn.equals(c.getSsn())) {	// equals는 문자 비교 (ssn안에 문자값과 c.getSsn 문자값을 비교)
             System.out.println("이름 : "+c.getName()+"\n주민번호 : "+ssn 
             + "\n휴대전화 : " + c.getPhone() + "\n아이디 : " + c.getCustomerId() 
             + "\n비밀번호 : " + c.getPasswd() + "\n보유계좌 : " + c.getAccount());
@@ -42,4 +42,4 @@ public class CustomerServiceImpl2 implements CustomerService {
    public int getNumOfCustomers() {
       return customerList.size();
    }
-}
+}	
