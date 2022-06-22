@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\LSH\workspace\jv200-pj\src\test\resources"/>
 			<item value="C:\zeroj-programming\eclipse-workspace\jv200"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -47,10 +48,12 @@
 			<item value="com.varxyz"/>
 		</list>
 		<list key="name">
+			<item value="JV250"/>
 			<item value="jv200-pj"/>
 			<item value="JV200"/>
 		</list>
 		<list key="artifactId">
+			<item value="jv250"/>
 			<item value="jv200-pj"/>
 			<item value="jv200"/>
 		</list>
