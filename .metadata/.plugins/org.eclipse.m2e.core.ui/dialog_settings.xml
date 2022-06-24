@@ -45,14 +45,18 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.varxyz.jv251"/>
+			<item value="jv251"/>
 			<item value="com.varxyz"/>
 		</list>
 		<list key="name">
+			<item value="jv251"/>
 			<item value="JV250"/>
 			<item value="jv200-pj"/>
 			<item value="JV200"/>
 		</list>
 		<list key="artifactId">
+			<item value="jv251"/>
 			<item value="jv250"/>
 			<item value="jv200-pj"/>
 			<item value="jv200"/>

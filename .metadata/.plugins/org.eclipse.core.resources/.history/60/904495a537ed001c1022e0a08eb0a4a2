@@ -1,6 +1,0 @@
-package com.varxyz.jv200.mod007;
-
-public interface Book {
-	public void addBook();
-	public void getBook();
-}

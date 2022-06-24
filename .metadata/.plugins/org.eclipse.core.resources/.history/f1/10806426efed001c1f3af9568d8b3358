@@ -1,9 +1,0 @@
-package com.varxyz.jv200.prime;
-
-public class InsertNumber {
-
-	public void InserNum(int insert) {
-		int x = 0;
-	}
-	
-}

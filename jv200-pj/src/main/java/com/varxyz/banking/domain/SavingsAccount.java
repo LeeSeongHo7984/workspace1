@@ -28,4 +28,9 @@ public class SavingsAccount extends Account {
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
+	
+//	@Override
+//	public String toString() {
+//		return "accountNum" + "balance" + "customer" + "interestRate" + "regDate" + "accountType";
+//	}
 }

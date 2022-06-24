@@ -1,8 +1,0 @@
-package com.varxyz.jv200.mod007;
-
-class Book implements Libary {
-	String bookName;
-	String author;
-	
-
-}
