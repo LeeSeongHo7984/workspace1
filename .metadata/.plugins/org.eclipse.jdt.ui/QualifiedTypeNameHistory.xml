@@ -29,7 +29,6 @@
     <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.ForegroundAction"/>
     <fullyQualifiedTypeName name="baking.Customer"/>
     <fullyQualifiedTypeName name="banking.Customer"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="banking.SavingsAccount"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
@@ -47,8 +46,15 @@
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Account"/>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.SavingsAccount"/>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.CheckingAccount"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Customer"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Account"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.dao.CustomerDao"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.dao.AccountDao"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.SavingsAccount"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.service.BankService"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.CheckingAccount"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.service.EntityNotFoundException"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.exception.CustomerNotFoundException"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.exception.DuplicatedEntityException"/>
 </qualifiedTypeNameHistroy>

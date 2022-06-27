@@ -14,7 +14,6 @@ public class CustomerServiceImpl2 implements CustomerService {
       if(getCustomerByssn(customer.getSsn()) == null) {
          customerList.add(customer);	//customerList에 customer 값들을 추가
       }
-      
    }
 
    @Override

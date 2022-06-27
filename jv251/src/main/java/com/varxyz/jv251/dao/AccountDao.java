@@ -32,7 +32,6 @@ public class AccountDao {
                a.setAid(rs.getLong("aid"));
                a.setAccountNum(rs.getString("accountNum"));
                a.setBalance(rs.getDouble("balance"));
-               a.setUserId(rs.getLong("customerId"));
                accountList.add(a);
             }
             
@@ -44,10 +43,10 @@ public class AccountDao {
       }
       return accountList;   
    }
+   
    public void addAccount(Account account) {
       String sql = "INSERT INTO Account(accountNum, balance, interestRate, overdraft, accountType, customerId)"
                + "VALUES(?, ?, ?, ?, ?, ?)";
-      
       try {
          Connection con = null;
          PreparedStatement  pstmt = null;
@@ -79,11 +78,13 @@ public class AccountDao {
          e.printStackTrace();
       }
    }
+   
    public List<Account> findAccountsBySsn(String ssn){
-      String sql  =  "SELECT a.aid, a.accountNum, a.balance, a.interestRate, "
-               +  "a.overdraft, a.accountType, c.name, c.ssn, c.phone, a.regDate"
-               +  "FROM Account a INNER JOIN Customer c ON a.customerId = c.cid"
-               +  "WHERE c.ssn = ?";
+//      String sql  =  "SELECT a.aid, a.accountNum, a.balance, a.interestRate, "
+//               +  "a.overdraft, a.accountType, c.name, c.ssn, c.phone, a.regDate"
+//               +  "FROM Account a INNER JOIN Customer c ON a.customerId = c.cid"
+//               +  "WHERE c.ssn = ?";
+	  String sql = "SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid WHERE c.ssn = ?";
       List<Account> list = new ArrayList<Account>();
       Account a = null;
       Customer c = null;
@@ -112,13 +113,14 @@ public class AccountDao {
                account.setAccountNum(rs.getString("accountNum"));
                account.setBalance(rs.getDouble("balance"));
                account.setCustomer(new Customer(rs.getString("name"),
-                     rs.getString("ssn"), rs.getString("phone")));
+                     rs.getString("ssn"), rs.getString("phone"), rs.getString("customerId"),
+                     rs.getString("passwd")));
                account.setRegDate(rs.getTimestamp("regDate"));
                list.add(account);
             }
             
          } finally{
-            DataSourceManager.close(rs,pstmt,con);
+            DataSourceManager.close(rs, pstmt, con);
          }
          
       } catch (Exception e) {
@@ -127,4 +129,27 @@ public class AccountDao {
       return list;
    }
    
+   public void deposite(double amount, String accountNum) {
+	      String sql = "UPDATE Account SET balance = ? WHERE accountNum = ? ";
+	      Account a = null;
+	      
+	      try {
+	         Connection con = null;
+	         PreparedStatement pstmt = null;
+	         try {
+	            con = DataSourceManager.getConnection();
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setDouble(1, amount);
+	            pstmt.setString(2, accountNum);
+	            pstmt.executeUpdate();
+	         } finally {
+	            DataSourceManager.close(pstmt,con);
+	            System.out.println(1);
+	         }
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	  }
 }
+
+

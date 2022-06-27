@@ -81,4 +81,10 @@ AND Customer.ssn = '981212-1111111';
 
 SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid;
 SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid WHERE c.ssn = '981212-1111111';
+
+SELECT * FROM CUSTOMER;
+
+DELETE FROM Customer WHERE name = '여포';
+
+ 
       	

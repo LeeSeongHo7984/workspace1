@@ -57,6 +57,5 @@ public class DataSourceManager {
 	   public static void close(PreparedStatement pstmt, Connection con) throws SQLException { 
 		   close(null, pstmt, con);
 	 }
-	
 }
 

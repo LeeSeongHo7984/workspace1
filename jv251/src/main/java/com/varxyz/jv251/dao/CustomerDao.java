@@ -57,7 +57,6 @@ public class CustomerDao {
          String sql = "SELECT * FROM Customer WHERE ssn = ?";
          List<Customer> customerList = new ArrayList<Customer>();
          Customer c = null;
-      
          
       try {    
          Connection con = null;
@@ -75,6 +74,7 @@ public class CustomerDao {
                c.setSsn(rs.getString("ssn"));
                c.setPhone(rs.getString("phone"));
                c.setUserId(rs.getString("userId"));
+               c.setPasswd(rs.getString("passwd"));
             }
          }finally {
             rs.close();
@@ -92,7 +92,7 @@ public class CustomerDao {
        * @param customer 등록할 고객정보
        */
       public void addCustomer(Customer customer) {
-         String sql = "INSERT INTO Customer(name, ssn, phone, customerId, passwd)" + " VALUES (?, ?, ?, ?, ?)";
+         String sql = "INSERT INTO Customer(name, ssn, phone, userId, passwd)" + " VALUES (?, ?, ?, ?, ?)";
          
          try {
             Connection con = DataSourceManager.getConnection();

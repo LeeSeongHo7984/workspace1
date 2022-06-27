@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="CustomerId"/>
+		<item key="selection" value=""/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="a = null"/>
-			<item value="finally"/>
-			<item value="dataSourceManager"/>
-			<item value="con"/>
-			<item value="userid"/>
-			<item value="balance"/>
-			<item value="Account_customerId"/>
-			<item value="CONSTRAINT"/>
+			<item value="saving"/>
+			<item value="addcoustomer"/>
+			<item value="addcou"/>
+			<item value="de"/>
+			<item value="service"/>
+			<item value="getInstance"/>
+			<item value="getIn"/>
+			<item value="throws"/>
 		</list>
 		<list key="replacehistory">
 		</list>

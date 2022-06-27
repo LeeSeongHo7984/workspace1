@@ -9,7 +9,7 @@ public class Customer {
 	private String phone; //연락처
 	private String userId; //고객id
 	private String passwd; //비밀번호
-	private List<Account> account; //보유계좌
+	private List<Account> accountList; //보유계좌
 	
 	public Customer () {
 		
@@ -19,10 +19,17 @@ public class Customer {
 		this.cid = cid;
 	}
 	
-	public Customer (String name, String ssn, String phone) {
+	public Customer(String name, String ssn, String phone) {
+		this(name, ssn, phone, null, null);
+	}
+
+	public Customer (String name, String ssn, String phone, String userId, String passwd) {
+		super();
 		this.name = name;
 		this.ssn = ssn;
 		this.phone = phone;
+		this.userId = userId;
+		this.passwd = passwd;
 	}
 	
 	public long getCid() {
@@ -74,11 +81,11 @@ public class Customer {
 	}
 
 	public List<Account> getAccount() {
-		return account;
+		return accountList;
 	}
 
 	public void setAccount(List<Account> account) {
-		this.account = account;
+		this.accountList = account;
 	}
 
 	@Override

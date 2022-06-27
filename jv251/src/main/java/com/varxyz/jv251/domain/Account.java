@@ -79,8 +79,8 @@ public abstract class Account {
       this.accountType = accountType;
    }
    
-//   @Override
+   @Override
    public String toString() {
-      return accountNum + ", " + balance + ", " + userId;
+      return "고객 계좌번호 : " + accountNum + "\n잔고 : " + balance;
    }
 }

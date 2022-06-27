@@ -69,6 +69,7 @@ public class Account {
 	public void setAid(long aid) {
 		this.aid = aid;
 	}
+	
 	@Override
 	public String toString() {
 		return accountNum + ", " + balance + ", " + customer.getName() + ", " + customer.getPhone() + ", " + regDate + ", " + aid;
