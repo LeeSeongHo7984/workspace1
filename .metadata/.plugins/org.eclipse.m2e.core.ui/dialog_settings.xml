@@ -15,6 +15,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -26,10 +27,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.varxyz.jv300"/>
 		</list>
 		<list key="groupId">
+			<item value="com.varxyz"/>
 		</list>
 		<list key="artifactId">
+			<item value="jv300"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -45,21 +49,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.varxyz.jv251"/>
-			<item value="jv251"/>
-			<item value="com.varxyz"/>
 		</list>
 		<list key="name">
-			<item value="jv251"/>
-			<item value="JV250"/>
-			<item value="jv200-pj"/>
-			<item value="JV200"/>
 		</list>
 		<list key="artifactId">
-			<item value="jv251"/>
-			<item value="jv250"/>
-			<item value="jv200-pj"/>
-			<item value="jv200"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

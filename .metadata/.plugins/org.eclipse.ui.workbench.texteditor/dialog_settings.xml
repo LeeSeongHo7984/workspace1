@@ -6,6 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="customerId"/>
 			<item value="saving"/>
 			<item value="addcoustomer"/>
 			<item value="addcou"/>
@@ -13,7 +14,6 @@
 			<item value="service"/>
 			<item value="getInstance"/>
 			<item value="getIn"/>
-			<item value="throws"/>
 		</list>
 		<list key="replacehistory">
 		</list>
