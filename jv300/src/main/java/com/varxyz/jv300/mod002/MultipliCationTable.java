@@ -30,6 +30,7 @@ public class MultipliCationTable extends HttpServlet {
 			for (int i = 2; i < 10; i++) {
 				m += (i + "*" + j + "=" + (i*j) + "\t");
 				}
+				m += "<br>";
 			}
 		return m;
 	}
