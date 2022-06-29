@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="add_user.do" method="get">
+		회원 아이디 : <input type = "text" name = "userId"/><br>
+		비밀 번호 : <input type = "text" name = "passwd"/><br>
+		이름 : <input type = "text" name = "userName"/><br>
+		주민번호 : <input type = "text" name="ssn"><br>
+		이메일1 : <input type = "text" name="email1" />@
+			<select name="email2">
+			<option value="">이메일 선택하기</option>
+			<option value="naver.com">naver.com</option>
+			<option value="google.com">google.com</option>
+			<option value="daum.net">daum.net</option>
+		</select><br>
+		관심분야 : 
+			<label><input type = "checkbox" name = "concerns" value="Java">Java</label>
+			<label><input type = "checkbox" name = "concerns" value="Servlet/JSP">Servlet/JSP</label>
+			<label><input type = "checkbox" name = "concerns" value="EJB">EJB</label>
+			<label><input type = "checkbox" name = "concerns" value="Android">Android</label>
+			<label><input type = "checkbox" name = "concerns" value="Spring">Spring</label><br>
+		<input type="submit" value="확인"/>
+	</form>
+</body>
+</html>
