@@ -52,6 +52,7 @@ public class AddUserServlet extends HttpServlet {
          dispatcher.forward(request, response);
          return;
       }
+      
       User user = new User();
       user.setUserId(userId);
       user.setPasswd(passwd);
@@ -61,11 +62,11 @@ public class AddUserServlet extends HttpServlet {
       user.setAddr(addr1 + " " + addr2);
       
       //3. 비즈니스 서비스 호출
-      
       userService.addUser(user);
+      request.setAttribute("userName", userName);
+      
       //4. NextPage
       dispatcher = request.getRequestDispatcher("success.jsp");
-      request.setAttribute("userName", userName);
       dispatcher.forward(request, response);
    }
 
