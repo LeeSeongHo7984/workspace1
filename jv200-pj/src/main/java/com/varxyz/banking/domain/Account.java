@@ -5,6 +5,10 @@ public class Account {
 	protected double balance;	// 잔액, protected를 써야 자식이 쓸수 있음.
 	protected Customer customer;
 	
+	public Account() {
+		
+	}
+	
 	public Account(String accountNum, double balance) {
 		this.accountNum = accountNum;
 		this.balance = balance;

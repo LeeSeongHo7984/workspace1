@@ -16,8 +16,8 @@ public class CustomerTest {
 //		CustomerService c1 = new CustomerServiceImpl();	
 		// interface는 객체를 만들지 못하므로 다형성을 이용하여 객체 "구현"
 		
-		c1.addCustomer(c);	// CustomerServiceTmpl에 Customer c에 담겨져 있는 정보를 전달
-		c1.getCustomerByssn("1234");	// CustomerServiceTmpl 안에 있는 메소드 호출
+//		c1.addCustomer(c);	// CustomerServiceTmpl에 Customer c에 담겨져 있는 정보를 전달
+//		c1.getCustomerByssn("1234");	// CustomerServiceTmpl 안에 있는 메소드 호출
 		
 		CustomerService c2 = new CustomerServiceImpl2();
 		c2.addCustomer(c);

@@ -7,7 +7,7 @@ import java.util.HashMap;
 // Map 형식
 public class CustomerServiceImpl implements CustomerService {
 	private static CustomerService service = new CustomerServiceImpl();
-    private Map<String, Customer> map = new HashMap<>();
+    private Map<String, Customer> map = new HashMap<String, Customer>();
    
     private CustomerServiceImpl() {
     	super();
@@ -17,7 +17,6 @@ public class CustomerServiceImpl implements CustomerService {
 	   return service;
    }
    
-   @Override
    public void addCustomer(Customer customer) {
     if(!map.containsKey(customer.getSsn())) {
     map.put(customer.getSsn(), customer);
@@ -25,7 +24,6 @@ public class CustomerServiceImpl implements CustomerService {
  }
 
 
-   @Override
    public Customer getCustomerByssn(String ssn) {
       if(map.containsKey(ssn)) {
          return map.get(ssn);
@@ -33,12 +31,10 @@ public class CustomerServiceImpl implements CustomerService {
       return null;
    }
 
-   @Override
    public Collection<Customer> getAllCustomers() {
       return map.values();
    }
 
-   @Override
    public int getNumOfCustomers() {
       return map.size();
    }

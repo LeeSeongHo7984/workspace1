@@ -17,12 +17,10 @@ public class AccountServiceImpl implements AccountService {
 		return service;
 	}
 	
-	@Override
 	public Account createSavingsAccount(String accountNum, double balance, double interestRate) {
 		return new SavingsAccount(accountNum, balance, interestRate);
 	}
 	
-	@Override
 	public Account createCheckingAccount(String accountNum, double balance, double overdraftAmount) {
 		return new CheckingAccount(accountNum, balance, overdraftAmount);
 	}
@@ -30,7 +28,6 @@ public class AccountServiceImpl implements AccountService {
 	/*
 	 * 신규 계좌 등록
 	 * @param count 계좌정보와 고객정보 전체를 캡슐화*/
-	@Override
 	public void addAccount(Account account) {
 		accountList.add(account);
 	}
@@ -40,18 +37,15 @@ public class AccountServiceImpl implements AccountService {
 	 * @param account
 	 * @param ssn
 	 * */
-	@Override
 	public void addAccount(Account account, String ssn) {
 		Customer customer = customerService.getCustomerByssn(ssn);
 		account.setCustomer(customer);
 	}
 	
-	@Override
 	public List<Account> getAccountBySsn(String ssn) {
 		return null;
 	}
 	
-	@Override
 	public Account getAccountByAccountNum(String accounNum) {
 		return null;
 	}
