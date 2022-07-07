@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/mod010/sign_up.do")
+@WebServlet("/mod010/sign_up.do")	// servlet의 역활은 클라이언트 요청 처리, 그 결과를 반환
 public class AddUserServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
@@ -50,6 +50,7 @@ public class AddUserServlet extends HttpServlet {
          dispatcher.forward(request, response);
          return;
       }
+      
       User user = new User();
       user.setUserId(userId);
       user.setPasswd(passwd);

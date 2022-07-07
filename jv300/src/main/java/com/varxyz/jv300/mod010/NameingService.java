@@ -3,7 +3,7 @@ package com.varxyz.jv300.mod010;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NameingService {
+public class NameingService {	// 이름 생성, 삭제, 중복확인
 	private static NameingService obj = new NameingService();
 	private Map<String, Object> nameValuePairs;
 	

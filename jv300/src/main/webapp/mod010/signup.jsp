@@ -48,6 +48,9 @@
 			   핸드폰번호 : <input type="text" name="phone"><br>
 			   <br><input type="submit" value="회원가입">
 		   </form>
+		  <form action="find.do" method="post">
+		   <br><input type="submit" value="회원조회">
+		   </form>
    		</div>
    		<div id="footer">
    			<%@ include file="/incl/footer.jsp" %>

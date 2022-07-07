@@ -10,3 +10,8 @@ CREATE TABLE Signup (
 DROP TABLE SignUp;
 
 SELECT * FROM SignUp;
+
+DELETE FROM Signup WHERE sid = 2;
+
+ALTER TABLE Signup
+RENAME COLUMN name TO userName;

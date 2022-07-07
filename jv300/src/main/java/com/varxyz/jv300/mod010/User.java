@@ -1,16 +1,16 @@
 package com.varxyz.jv300.mod010;
 
 public class User {
-	private String userId;
-	private String passwd;
-	private String userName;
-	private String ssn;
-	private String phone;
+	private String userId;	// private로 만들어 외부의 접근을 제한
+	private String passwd;	// private로 만들어 외부의 접근을 제한
+	private String userName;	// private로 만들어 외부의 접근을 제한
+	private String ssn;	// private로 만들어 외부의 접근을 제한
+	private String phone;	// private로 만들어 외부의 접근을 제한
 	
-	public String getUserId() {
+	public String getUserId() {	// Getter를 사용해 본 필드의 값을 숨긴 채 내부에서 가공된 값을 사용
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(String userId) {	//  Setter를 사용해 전달받은 값을 내부에서 가공해 필드에 넣어주는 방식
 		this.userId = userId;
 	}
 	public String getPasswd() {
