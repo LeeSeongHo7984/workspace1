@@ -20,7 +20,7 @@ public class UserService {
 	}
    
 	public void addUser(User user) {
-		adduserdao.insertUser(user);
+		userdao.insertUser(user);
 		
 	}
 	

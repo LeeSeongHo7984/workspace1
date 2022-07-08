@@ -13,27 +13,30 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private UserService userService;
+	private UserService userService = UserService.getInstance();
 	
-	public void init() {
-		userService = new UserService();
-	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+												throws ServletException, IOException {
 		request.getRequestDispatcher("login.jsp").forward(request, response);	// login.jsp로 보내주는 역할을 함
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+												throws ServletException, IOException {
 		
-		String userId = request.getParameter("userId");
-		String passwd = request.getParameter("passwd");		
+		// 3. getParameter로 받아올거라는거 받아옴 그리고 변수에 집어넣음
+		String userId = request.getParameter("userId");	// jsp에 name 값이 () 괄호 안에 값, 로그인 페이지에서 내가 친 값
+		String passwd = request.getParameter("passwd");	// jsp에 name 값이 () 괄호 안에 값, 로그인 페이지에서 내가 친 값	
 		
 		// 요청 파라메터 검증
 		// ...
+		// 4. 집어 넣은 변수를 isValidUser 메소드에 넣어서 호출함 
 		if(!userService.isValidUser(userId, passwd)) {
-			request.getRequestDispatcher("login.jsp");	// 아니면 로그인 페이지로 보낸다.
+			// 10. 들어간 결과가 False면 여기
+			request.getRequestDispatcher("login.jsp").forward(request, response);	// 아니면 로그인 페이지로 보낸다.
 			return;
 		}
+		
+		// 11. 아니면 여기 -끝-
 		HttpSession session = request.getSession(true); // getSession(boolean)
 		session.setAttribute("userId", userId);	// setAttribute(String, Object);
 		// sendRedirect : java Servlet에서 이동을 위한 메소드이다. 오직 이동만 한다. 데이터를 가지고 가지 않는다.

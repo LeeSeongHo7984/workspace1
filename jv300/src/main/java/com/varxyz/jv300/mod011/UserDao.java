@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.xdevapi.Result;
 import com.varxyz.jv300.mod010.DataSource;
 import com.varxyz.jv300.mod010.NameingService;
 import com.varxyz.jv300.mod010.User;
@@ -79,5 +80,44 @@ public class UserDao {
 			return userList;
 	}
 	
+	// 내가 친 아이디, 비번이랑 DB에 저장된 아이디, 비번 일치하는지 확인하는 코드
+	
+	// 7. DB정보랑 내가 입력한 정보를 비교하는 로직을 구현해놓음
+	// 8. 결과는 return 으로 반환함
+	public boolean equalsUser(String userId, String passwd) {
+		String sql = "SELECT userId, passwd FROM Signup WHERE userId = ?";
+		boolean result = false;
+		
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, userId);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					User user = new User(); //유저 객체 생성하기
+					user.setUserId(rs.getString("userId"));	// DB에 저장된 아이디를 생성한 객체에 넣기
+					// rs.getString("userId") == db저장되어 있는 userId값들 전부
+					user.setPasswd(rs.getString("passwd")); // DB에 저장된 비번을 생성한 객체에 넣기
+					
+					if(userId.equals(user.getUserId()) && passwd.equals(user.getPasswd())) {
+						result = true;
+					} else {
+						result = false;
+					}
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
 
