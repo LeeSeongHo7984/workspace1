@@ -23,7 +23,7 @@ public class UserDao {
 	
 	// 신규 유저
 	  public void insertUser(User user) {
-      String sql = "INSERT INTO Signup (name, ssn, phone, userId, passwd)"
+      String sql = "INSERT INTO Signup (userName, ssn, phone, userId, passwd)"
                + "VALUES(?, ?, ?, ?, ?)";
 	      try {
 	         Connection con = null;
