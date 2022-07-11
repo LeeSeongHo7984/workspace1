@@ -5,7 +5,7 @@ import java.util.List;
 import com.varxyz.jv300.mod010.User;
 
 // 메소드 생성
-
+// 메소드 집합
 public class UserService {
 	private UserDao userdao = UserDao.getInstance();
 	

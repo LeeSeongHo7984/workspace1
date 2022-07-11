@@ -1,38 +1,5 @@
-<<<<<<< Updated upstream
-INDEX VERSION 1.131+C:\Users\tjdgh\LSH\workspace\.metadata\.plugins\org.eclipse.jdt.core
-2274033626.index
-590256380.index
-166012402.index
-1296671446.index
-3662521297.index
-2633554181.index
-1865797976.index
-2203585265.index
-1849298257.index
-2297078805.index
-596229122.index
-2549426702.index
-378092844.index
-2301152802.index
-2575232498.index
-1446701404.index
-3738698511.index
-163618436.index
-4099881575.index
-3927199425.index
-4253314631.index
-849047104.index
-3378990448.index
-201794482.index
-4022312111.index
-2870237794.index
-1337400160.index
-3216930323.index
-2778854698.index
-1442187859.index
-=======
 INDEX VERSION 1.131+C:\LSH\workspace\.metadata\.plugins\org.eclipse.jdt.core
-3229222956.index
+4099881575.index
 156365046.index
 781675358.index
 1865797976.index
@@ -61,5 +28,4 @@ INDEX VERSION 1.131+C:\LSH\workspace\.metadata\.plugins\org.eclipse.jdt.core
 1250949862.index
 637161282.index
 3391169783.index
-4099881575.index
->>>>>>> Stashed changes
+3229222956.index
