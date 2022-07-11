@@ -32,6 +32,8 @@
 	</section>
 	<section name="">
 		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
+		<item key="org.eclipse.jdt.search.resultpage.limit" value="1000"/>
+		<item key="org.eclipse.jdt.search.resultpage.limit_enabled" value="TRUE"/>
 	</section>
 	<section name="org.eclipse.jdt.ui.JavaSearchResultPage">
 		<item key="org.eclipse.jdt.search.resultpage.limit" value="1000"/>
@@ -48,7 +50,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="sign_up"/>
+=======
+			<item key="textPattern" value="contentList"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -63,7 +69,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="private static List"/>
+=======
+			<item key="textPattern" value="sex"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -75,7 +85,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="contentList"/>
+=======
+			<item key="textPattern" value="sendRedirect"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -87,7 +101,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="var"/>
+=======
+			<item key="textPattern" value="dispatcher"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -99,7 +117,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="items"/>
+=======
+			<item key="textPattern" value="dispacher"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -111,7 +133,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="&lt;%"/>
+=======
+			<item key="textPattern" value="isValidUser"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -123,7 +149,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="findAll"/>
+=======
+			<item key="textPattern" value="private static List"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -135,7 +165,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="select"/>
+=======
+			<item key="textPattern" value="var"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -147,7 +181,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="jdbc"/>
+=======
+			<item key="textPattern" value="items"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -159,7 +197,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="8080"/>
+=======
+			<item key="textPattern" value="&lt;%"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -171,7 +213,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="servlet.service()"/>
+=======
+			<item key="textPattern" value="findAll"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -183,7 +229,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+<<<<<<< Updated upstream
 			<item key="textPattern" value="id는"/>
+=======
+			<item key="textPattern" value="select"/>
+>>>>>>> Stashed changes
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
