@@ -5,7 +5,6 @@ import java.util.List;
 import com.varxyz.jv300.mod011.UserDao;
 
 public class UserService {
-	private AddUserDao adduserdao = AddUserDao.getInstance();
 	
 	private UserDao  userdao = UserDao.getInstance();
 	
