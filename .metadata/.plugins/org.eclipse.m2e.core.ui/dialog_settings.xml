@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\LSH\workspace\jv300\src\main\java\gym\servlet"/>
 			<item value="C:\LSH\workspace\jv200-pj\src\test\resources"/>
 			<item value="C:\zeroj-programming\eclipse-workspace\jv200"/>
 		</list>
@@ -27,13 +28,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.varxyz.jv300"/>
 		</list>
 		<list key="groupId">
-			<item value="com.varxyz"/>
 		</list>
 		<list key="artifactId">
-			<item value="jv300"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -49,10 +47,13 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="OnlineGymPaymentSystem"/>
 		</list>
 		<list key="name">
+			<item value="OnlineGymPaymentSystem"/>
 		</list>
 		<list key="artifactId">
+			<item value="OnlineGymPaymentSystem"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
