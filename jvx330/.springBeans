@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.22.202204280911-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/main/java/com/varxyz/jvx330/intro/beans.xml</config>
+		<config>src/main/java/com/varxyz/jvx330/di/example1/beans.xml</config>
+		<config>src/main/java/com/varxyz/jvx330/di/example2/beans.xml</config>
+		<config>src/main/java/com/varxyz/jvx330/di/example3/beans.xml</config>
+		<config>src/main/java/com/varxyz/jvx330/di/example4/ex1/beans.xml</config>
+		<config>src/main/java/com/varxyz/jvx330/di/example5/ex1/beans.xml</config>
+		<config>src/main/java/com/varxyz/jvx330/di/example5/ex2/beans.xml</config>
+	</configs>
+	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
