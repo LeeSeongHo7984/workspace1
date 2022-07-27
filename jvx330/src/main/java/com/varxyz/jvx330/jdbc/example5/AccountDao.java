@@ -1,7 +1,6 @@
 package com.varxyz.jvx330.jdbc.example5;
 
 import static java.sql.Types.*;
-import java.sql.Types;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
@@ -37,7 +36,7 @@ public class AccountDao {
 					sa.getAccountNum(), String.valueOf(sa.getAccountType()), sa.getBalance(), 
 					sa.getInterestRate(), 0.0, sa.getCustomer().getCid()
 			};
-		}else {
+		} else {
 	         ca = (CheckingAccount)account;
 	         args = new Object[] {
 	               ca.getAccountNum(), String.valueOf(ca.getAccountType()),
