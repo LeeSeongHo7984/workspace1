@@ -14,9 +14,11 @@ public class Account {
 	private String customerId;
 	private String accountNum;
 	private String accType;
-	private double balance;
-	private double interestRate;
-	private double overAmount;
+	private String deposit;	// 입금
+	private String withdrawal;	// 출금
+	private double balance;	// 잔고
+	private double interestRate;	// 이자율
+	private double overAmount;	// 한도액
 	
 	public Account() {
 		super();

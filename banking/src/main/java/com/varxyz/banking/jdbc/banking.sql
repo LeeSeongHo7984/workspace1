@@ -12,6 +12,8 @@ RENAME COLUMN customerId TO userId;
 
 SELECT * FROM Customer;
 
+DELETE 
+
 DROP TABLE Customer;
 
 INSERT INTO Customer (userId, passwd, name, ssn, phone) VALUES("asd", "1234", "asd", "1111", "1111");
@@ -21,9 +23,9 @@ CREATE TABLE Account(
 	customerId		VARCHAR(20)		NOT NULL,
 	accountNum		CHAR(11)		NOT NULL, -- 000-00-0000
 	accType			CHAR(1)			NOT NULL DEFAULT 'S',
-	balance			DOUBLE			NOT NULL DEFAULT 0.0,
-	interestRate	DOUBLE			NOT NULL DEFAULT 0.0,
-	overAmount		DOUBLE			NOT NULL DEFAULT 0.0,
+	balance			DOUBLE			NOT NULL DEFAULT 0.0,	-- 잔고
+	interestRate	DOUBLE			NOT NULL DEFAULT 0.0,	-- 이자율
+	overAmount		DOUBLE			NOT NULL DEFAULT 0.0,	-- 한도액
 	
 	CONSTRAINT Account_customerId_FK
 		FOREIGN KEY(customerId) REFERENCES Customer(userId)

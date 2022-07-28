@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/default.css'/>"/>
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/signUp.css'/>"/>
 </head>
 <body>
 	<h3>가입여부 확인</h3>

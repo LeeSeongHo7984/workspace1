@@ -14,7 +14,7 @@ public class CustomerDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-	// 고객 생성
+	//신규 고객 생성 (addCustomer) : 회원 id, 비번, 이름, 주민, 전화번호 필요
 	public void addCustomer(Customer customer) {
 		String sql = "INSERT INTO Customer (userId, passwd, name, ssn, phone) "
 				+ " VALUES(?, ?, ?, ?, ?)";

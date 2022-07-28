@@ -9,9 +9,9 @@
 </head>
 <body>
 	<h3>고객계좌 정보</h3>
-	<c:forEach var="a" items="${account}">
-		계좌번호 : ${a.accountNum}<br>
-		계좌타입 : ${a.accType}
+	<c:forEach var="account" items="${accountList}">
+		계좌번호 : ${account.accountNum}<br>
+		계좌타입 : ${account.accType}
 	</c:forEach>
 </body>
 </html>

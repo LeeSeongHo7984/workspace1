@@ -6,7 +6,6 @@
     <fullyQualifiedTypeName name="com.varxyz.jvx330.jdbc.Account"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.PreparedStatementCreator"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="org.springframework.jdbc.core.BeanPropertyRowMapper"/>
     <fullyQualifiedTypeName name="com.varxyz.jvx330.jdbc.example5.AccountDao"/>
     <fullyQualifiedTypeName name="com.varxyz.jvx330.jdbc.DataSourceConfig"/>
     <fullyQualifiedTypeName name="java.sql.Types"/>
@@ -41,7 +40,6 @@
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dto.SavingAccount"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dto.CheckingAccount"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mapper.SavingAccount"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mapper.CustomerAccountRowMapper"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mapper.CheckingAccount"/>
@@ -56,8 +54,10 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.jdbc.DataSourceConfig"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dao.AccountDao"/>
-    <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dto.Account"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.BeanPropertyRowMapper"/>
+    <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dto.Account"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.service.AccountService"/>
 </qualifiedTypeNameHistroy>

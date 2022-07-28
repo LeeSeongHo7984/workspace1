@@ -17,4 +17,10 @@ public interface AccountService { // interface는 객체 생성 못함
 	public void addAccount(Account account);
 
 	List<Account> findAccountsByCustomerId(String customerId);
+	
+	List<Account> getBalance(String accountNum);
+
+	void deposit(String accountNum, double money);
+	
+	void withdraw(String accountNum, double money);
 }
