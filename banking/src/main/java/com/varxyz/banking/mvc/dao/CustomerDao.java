@@ -1,6 +1,9 @@
 package com.varxyz.banking.mvc.dao;
 
+import java.util.List;
+
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

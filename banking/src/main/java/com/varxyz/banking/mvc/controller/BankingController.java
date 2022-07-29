@@ -14,12 +14,23 @@ import com.varxyz.banking.service.AccountService;
 import com.varxyz.banking.service.AccountServiceImpl;
 import com.varxyz.banking.service.CustomerService;
 import com.varxyz.banking.service.CustomerServiceImpl;
+import com.varxyz.banking.service.LoginService;
+import com.varxyz.banking.service.LoginServiceImpl;
 
 @Controller("controller.bankingController")
 public class BankingController {
 
+	// CustomerService는 interface라서 객체를 못만드니까 
+	// CustomerService를 상속받은 CustomerServiceImpl을 받는다
 	CustomerService customerService = new CustomerServiceImpl();
+	
+	// AccountService는 interface라서 객체를 못만드니까 
+	// AccountService를 상속받은 AccountServiceImpl을 받는다
 	AccountService accountService = new AccountServiceImpl();
+	
+	// LoginService는 interface라서 객체를 못만드니까 
+	// LoginService를 상속받은 LoginServiceImpl을 받는다
+	LoginService loginService = new LoginServiceImpl();
 
 	// Customer : 고객 생성
 	@GetMapping("/customer/addCustomer")
@@ -34,6 +45,36 @@ public class BankingController {
 		customerService.addCustomer(customer);
 		CustomerService.context.close();
 		return "customer/successAddCustomer";
+	}
+	
+	
+	// login : 로그인
+	@GetMapping("/login/login")
+	public String loginForm() {
+		return "login/login";
+	}
+	
+	@PostMapping("/login/login")
+	public String login(Customer y) {
+		// 서비스를 썼으면 서비스 안에 값을 불러와야 한다. (23, 24, 25번 줄에 서비스 객체 생성한게 있음)
+		// 리스트에서 객체를 가져온 다음 값을 가져온다
+		// System.out.println(customerService.login(y.getUserId()).get(0).getUserId());
+		
+		Customer dbGetCustomer = new Customer();
+		
+		dbGetCustomer = loginService.login(y.getUserId());
+		
+		if(y.getPasswd().equals(dbGetCustomer.getPasswd())
+				&& y.getUserId().equals(dbGetCustomer.getUserId())) {
+			System.out.println("서비스 불러온거 - > "+loginService.login(y.getUserId()));
+			System.out.println("성공");
+			return "login/successLogin"; 
+		} else {
+			System.out.println("사용자가 친것 -> " + y.getUserId() );
+			System.out.println("실패");
+			return "login/login";
+		}
+			
 	}
 
 	// Account : 계좌 생성
@@ -116,6 +157,15 @@ public class BankingController {
 		return "account/successBalance";
 	}
 
+//	@GetMapping("/transfer/transfer")
+//	public String tranferFomr() {
+//		return "transfer/transfer";
+//	}
+//	
+//	@PostMapping("/transfer/transfer")
+//	public String 
+//	
+//
 }
 
 
@@ -136,4 +186,8 @@ public class BankingController {
  * 
  * 3) dao에 deposit 메소드 타입을 리스트로 받아줄 필요가 없었음 -> 입금기능은 이체를 위해 만드는거라 결과값 끄집어내려 할 필요
  * X == controller에서 model로 값 넘겨줄 필요 X
+ * 
+ * 번외
+ * public String login(Customer y) : y라는 파라미터는 login이라는 
+ * 메소드 안에서만 실행되기 때문에 다른데서는 쓸 수 없다.
  */

@@ -23,4 +23,5 @@ public interface AccountService { // interface는 객체 생성 못함
 	void deposit(String accountNum, double money);
 	
 	void withdraw(String accountNum, double money);
+	
 }

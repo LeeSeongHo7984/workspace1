@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="CHAR"/>
+		<item key="selection" value="padding-bottom"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
+			<item value="padding-bottom"/>
 			<item value="Char"/>
 			<item value="jvx"/>
 			<item value="331"/>
@@ -15,7 +16,6 @@
 			<item value="dataSource"/>
 			<item value="jstl"/>
 			<item value="getInstance"/>
-			<item value="sendRedirect"/>
 		</list>
 		<list key="replacehistory">
 		</list>

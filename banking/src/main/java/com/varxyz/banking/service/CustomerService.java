@@ -1,5 +1,7 @@
 package com.varxyz.banking.service;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.varxyz.banking.jdbc.DataSourceConfig;
@@ -13,4 +15,5 @@ public interface CustomerService {	// interface는 객체 생성 못함
 	CustomerDao customerDao = context.getBean("customerDao", CustomerDao.class);
 	
 	public void addCustomer(Customer customer);
+
 }

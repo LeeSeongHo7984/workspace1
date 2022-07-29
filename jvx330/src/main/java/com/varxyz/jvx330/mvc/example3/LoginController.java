@@ -22,7 +22,7 @@ public class LoginController {
 		String passwd = request.getParameter("passwd");	// 비밀번호 받아오기
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("userId", userId);
+		mav.addObject("userI`d", userId);
 		mav.addObject("passwd", passwd);
 		mav.setViewName("example3/login_result");
 		
