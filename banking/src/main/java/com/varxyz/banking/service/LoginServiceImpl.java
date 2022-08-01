@@ -1,13 +1,11 @@
 package com.varxyz.banking.service;
 
-import java.util.List;
-
 import com.varxyz.banking.mvc.dto.Customer;
 
 public class LoginServiceImpl implements LoginService {
-	
+	//3. serviceImpl -> loginDao
 	@Override
-	public Customer login(String z) {	
-		return loginDao.login(z);
+	public Customer login(String dbId) {		// db userId
+		return loginDao.login(dbId);	//db userId 
 	}
 }

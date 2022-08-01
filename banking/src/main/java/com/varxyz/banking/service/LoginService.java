@@ -1,7 +1,5 @@
 package com.varxyz.banking.service;
 
-import java.util.List;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.varxyz.banking.jdbc.DataSourceConfig;
@@ -12,7 +10,8 @@ public interface LoginService {
 	AnnotationConfigApplicationContext context = 
 			new AnnotationConfigApplicationContext(DataSourceConfig.class);
 	
-	LoginDao loginDao = context.getBean("loginDao", LoginDao.class);
+	LoginDao loginDao = context.getBean("loginDao", LoginDao.class);	// 여기서 logindao에 있는 값들을 가져와서 loginDao 객체에 저장 
 	
-	public Customer login(String x);
+	//2. service -> serviceImpl
+	public Customer login(String x); //db userId
 }

@@ -14,7 +14,6 @@ public class Customer {
 	private String name;
 	private String ssn;
 	private String phone;
-	
 	public Customer() {
 		super();
 	}

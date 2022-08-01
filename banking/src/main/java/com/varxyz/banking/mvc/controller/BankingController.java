@@ -55,22 +55,24 @@ public class BankingController {
 	}
 	
 	@PostMapping("/login/login")
-	public String login(Customer y) {
+	public String login(Customer customer) { //input Id 근데 여기 y가 내가 입력한 input id면
 		// 서비스를 썼으면 서비스 안에 값을 불러와야 한다. (23, 24, 25번 줄에 서비스 객체 생성한게 있음)
 		// 리스트에서 객체를 가져온 다음 값을 가져온다
 		// System.out.println(customerService.login(y.getUserId()).get(0).getUserId());
-		
+	
 		Customer dbGetCustomer = new Customer();
 		
-		dbGetCustomer = loginService.login(y.getUserId());
+		//1.controller -> Service  
+		dbGetCustomer = loginService.login(customer.getUserId()); //db userId (Customer 클래스에 있는 값을 customer라는 이름으로 가져와서 loginService.login에 값 넣어서 받음)
 		
-		if(y.getPasswd().equals(dbGetCustomer.getPasswd())
-				&& y.getUserId().equals(dbGetCustomer.getUserId())) {
-			System.out.println("서비스 불러온거 - > "+loginService.login(y.getUserId()));
+		//5 ↓ 끝 
+ 		if(customer.getPasswd().equals(dbGetCustomer.getPasswd())
+				&& customer.getUserId().equals(dbGetCustomer.getUserId())) {
+			System.out.println("서비스 불러온거 - > "+loginService.login(customer.getUserId()));
 			System.out.println("성공");
 			return "login/successLogin"; 
 		} else {
-			System.out.println("사용자가 친것 -> " + y.getUserId() );
+			System.out.println("사용자가 친것 -> " + customer.getUserId() );
 			System.out.println("실패");
 			return "login/login";
 		}

@@ -96,7 +96,7 @@
 			<version>${javax.servlet.jstl-version}</version>
 		</dependency>
 		
-		<!-- loombok -->	
+		<!-- lombok -->	
 	      <dependency>
 	         <groupId>org.projectlombok</groupId>
 	         <artifactId>lombok</artifactId>

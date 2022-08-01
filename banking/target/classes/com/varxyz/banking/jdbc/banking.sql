@@ -10,7 +10,7 @@ CREATE TABLE Customer(
 ALTER TABLE Customer
 RENAME COLUMN customerId TO userId;
 
-SELECT * FROM Customer;
+SELECT * FROM Customer; 
 
 DELETE 
 
