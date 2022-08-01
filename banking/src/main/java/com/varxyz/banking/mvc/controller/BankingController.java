@@ -156,7 +156,8 @@ public class BankingController {
 
 		return "account/successBalance";
 	}
-
+	
+	// 이체
 //	@GetMapping("/transfer/transfer")
 //	public String tranferFomr() {
 //		return "transfer/transfer";

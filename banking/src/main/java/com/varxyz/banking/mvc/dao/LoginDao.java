@@ -20,9 +20,9 @@ public class LoginDao {
 	// 로그인 (login)
 	public Customer login(String x) {
 		String sql = "SELECT userId, passwd "
-				+ "FROM Customer WHERE userId = ?";
+				+ "FROM Customer WHERE userId = ?";	
 		
-	return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Customer>(Customer.class), x);	
+	return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Customer>(Customer.class), x);	//db 안에 있는 값을 비교
 	// (sql, new BeanPropertyRowMapper<Customer>(Customer.class), x) 에서
 	//	젤 뒤에 x는 물음표에 들어가는 값만 쓴다 (where userId = ? )
 	
