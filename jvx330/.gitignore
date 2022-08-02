@@ -131,3 +131,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,windows,svn
 /07_VarxyzCourses/
+
+/.metadata/
