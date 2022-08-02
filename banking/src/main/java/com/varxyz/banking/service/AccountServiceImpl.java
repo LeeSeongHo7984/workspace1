@@ -20,20 +20,20 @@ public class AccountServiceImpl implements AccountService {
 	
 	// 입금
 	@Override
-	public void deposit(String accountNum, double money) {
-		accountDao.deposit(accountNum, money);
+	public void deposit(String accountNum, double amount) {
+		accountDao.deposit(accountNum, amount);
 	}
 	
 	// 출금
 	@Override
-	public void withdraw(String accountNum, double money) {
-		accountDao.withdraw(accountNum, money);
+	public void withdraw(String accountNum, double amount) {
+		accountDao.withdraw(accountNum, amount);
 	}
 	
 	// 잔액 조회
 	@Override
-	public List<Account> getBalance(String accountNum) {
-		return accountDao.getBalance(accountNum);
+	public List<Account> Balance(String accountNum) {
+		return accountDao.Balance(accountNum);
 	}
 
 	

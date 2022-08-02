@@ -16,12 +16,12 @@ public class LoginDao {
 	}
 	
 	// 로그인 (login)
-		public Customer login(String x) {
+		public Customer login(String inputId) {
 			String sql = "SELECT userId, passwd "
 					+ "FROM Customer WHERE userId = ?";	
 		
 		//4. Dao -> controller	
-		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Customer>(Customer.class), x); //db 안에 있는 값을 비교
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Customer>(Customer.class), inputId); //db 안에 있는 값을 비교
 		// new BeanPropertyRowMapper<Customer>(Customer.class) : db 저장된값, 뒤에 x는 내가 친 값
 		// (sql, new BeanPropertyRowMapper<Customer>(Customer.class), x) 에서
 		//	젤 뒤에 x는 물음표에 들어가는 값만 쓴다 (where userId = ? )

@@ -10,8 +10,8 @@
 <body>
 	<form action="deposit" method="post">
 	<label>입금할 계좌번호를 입력하세요 : <input type="text" name="accountNum"></label><br>
-	<label>입금할 money를 입력하세요 : <input type="text" name="money"></label><br>
-	<input type="submit" value="송금">
+	<label>입금할 금액을 입력하세요 : <input type="text" name="amount"></label><br>
+	<input type="submit" value="입금">
 	</form>
 </body>
 </html>

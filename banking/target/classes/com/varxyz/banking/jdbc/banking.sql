@@ -12,8 +12,6 @@ RENAME COLUMN customerId TO userId;
 
 SELECT * FROM Customer; 
 
-DELETE 
-
 DROP TABLE Customer;
 
 INSERT INTO Customer (userId, passwd, name, ssn, phone) VALUES("asd", "1234", "asd", "1111", "1111");
@@ -32,5 +30,7 @@ CREATE TABLE Account(
 )AUTO_INCREMENT = 3001;
 
 SELECT * FROM Account;
+
+DELETE FROM Account WHERE aid = 3011;
 
 DROP TABLE Account

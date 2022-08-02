@@ -18,7 +18,7 @@ public class Account {
 	private String withdrawal;	// 출금
 	private double balance;	// 잔고
 	private double interestRate;	// 이자율
-	private double overAmount;	// 한도액
+	private double amount;	// 총액
 	
 	public Account() {
 		super();

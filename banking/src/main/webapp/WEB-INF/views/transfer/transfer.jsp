@@ -9,9 +9,9 @@
 </head>
 <body>
 	<form action="transfer" method="post">
-		<label>보낼분 계좌 : </label><input type="text" name="accuontNum"><br>
-		<label>비밀번호 : </label><input type="passwd" name="passwd"><br>
-		<label>받으실분 계좌 : </label><input type="text" name="accountNum"><br>
+		<label>보내는분 계좌 : </label><input type="text" name="sendAccount"><br>
+		<label>보낼 금액 : </label><input type="text" name="amount"><br>
+		<label>받으실분 계좌 : </label><input type="text" name="receiveAccount"><br>
 		<input type="submit" value="이체"/>
 	</form>
 </body>

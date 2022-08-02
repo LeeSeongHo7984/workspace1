@@ -11,7 +11,7 @@
 	<h3>고객계좌 정보</h3>
 	<c:forEach var="account" items="${accountList}">
 		계좌번호 : ${account.accountNum}<br>
-		계좌타입 : ${account.accType}
+		계좌타입 : ${account.accType}<br><br>
 	</c:forEach>
 </body>
 </html>

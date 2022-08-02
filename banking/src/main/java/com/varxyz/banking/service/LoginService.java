@@ -10,8 +10,9 @@ public interface LoginService {
 	AnnotationConfigApplicationContext context = 
 			new AnnotationConfigApplicationContext(DataSourceConfig.class);
 	
-	LoginDao loginDao = context.getBean("loginDao", LoginDao.class);	// 여기서 logindao에 있는 값들을 가져와서 loginDao 객체에 저장 
+	// ↓ logindao안에 db에 있는 값들을 가져와서 loginDao 객체에 저장
+	LoginDao loginDao = context.getBean("loginDao", LoginDao.class);	 
 	
 	//2. service -> serviceImpl
-	public Customer login(String x); //db userId
+	public Customer login(String dbId); //db userId
 }

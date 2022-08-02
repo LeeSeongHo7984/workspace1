@@ -33,7 +33,7 @@ public class AccountDao {
 					account.getAccountNum(),
 					account.getAccType(),
 					account.getBalance(),
-					account.getOverAmount(),0.0);
+					account.getAmount(),0.0);
 		}
 	}
 	
@@ -46,29 +46,25 @@ public class AccountDao {
 		}
 
 	// 입금 (deposit) : 회원 id, 입금 계좌번호
-		public void deposit(String accountNum, double money) {
+		public void deposit(String accountNum, double amount) {
 			String sql = "UPDATE Account SET balance = ? WHERE accountNum = ?";
-			jdbcTemplate.update(sql, getBalance(accountNum).get(0).getBalance() + money, accountNum );
+			jdbcTemplate.update(sql, Balance(accountNum).get(0).getBalance() + amount, accountNum );
 	}
 
 	// 출금 (withdrawal) : 회원 id, 출금 계좌번호, 출금할 돈 필요 
-		public void withdraw(String accountNum, double money) {
+		public void withdraw(String accountNum, double amount) {
 			String sql = "UPDATE Account SET balance = ? WHERE accountNum = ?";
-			jdbcTemplate.update(sql, getBalance(accountNum).get(0).getBalance() - money, accountNum );
+			
+			jdbcTemplate.update(sql, Balance(accountNum).get(0).getBalance() - amount, accountNum );
 	}
 
-	// 계좌 잔고 확인 (getBalance) : 계좌번호 필요
-		public List<Account> getBalance(String accountNum) {
+	// 계좌 잔고 확인 (Balance) : 계좌번호 필요
+		public List<Account> Balance(String accountNum) {
 			String sql = "SELECT balance, accountNum FROM Account WHERE accountNum = ?";
 			
 			return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Account>(Account.class), accountNum);
 		}
 		
-
-	// 매달 말 계좌에 설정된 이자 지급 (savaInterest) : 이자율, 계좌번호 필요 (나중에)
-		
-
-	// 다른 계좌로 이체 (transfer) : 이체금액, 출금 계좌번호, 입금 계좌번호 필요
 		
 }
 
