@@ -3,6 +3,9 @@ package com.varxyz.banking.mvc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +35,19 @@ public class BankingController {
 	// LoginService를 상속받은 LoginServiceImpl을 받는다
 	LoginService loginService = new LoginServiceImpl();
 
+//	 home : 메인 페이지
+	@GetMapping("/homePage")
+	// ↓ model을 쓰는 이유는 jsp에서 el태그로 뿌려줄려고 씀
+	public String homePageForm(HttpSession session, Model model) {
+		if(session.getAttribute("customerId") == null) {
+			return "login/login";
+		}
+		
+		// ↓ 로그인한 사람의 계좌를 통해서 기능을 쓸려고 정의해 놓은 것
+		model.addAttribute("accountNum", accountService.findAccountsByCustomerId((String)session.getAttribute("customerId")));
+		return "/homePage";
+	}
+	
 	// Customer : 고객 생성
 	@GetMapping("/customer/addCustomer")
 	public String addCustomerForm() {
@@ -48,37 +64,40 @@ public class BankingController {
 	}
 	
 	
-	// login : 로그인
+	// login : 로그인 && 세션연결
 	@GetMapping("/login/login")
-	public String loginForm() {
+	public String loginForm(HttpSession session) {
+		session.invalidate();	// 기존세션값 삭제
 		return "login/login";
 	}
 	
 	@PostMapping("/login/login")
-	public String login(Customer customer) { //input Id 근데 여기 y가 내가 입력한 input id면
-		// 서비스를 썼으면 서비스 안에 값을 불러와야 한다. (23, 24, 25번 줄에 서비스 객체 생성한게 있음)
-		// 리스트에서 객체를 가져온 다음 값을 가져온다
-		// System.out.println(customerService.login(y.getUserId()).get(0).getUserId());
+	public String login(Customer customer, HttpSession session, HttpServletRequest request, Model model) { //input Id
+		session = request.getSession();
 	
 		Customer dbGetCustomer = new Customer();
 		
-		//1.controller -> Service  
+		// 1.controller -> Service  
 		dbGetCustomer = loginService.login(customer.getUserId()); //db userId (Customer 클래스에 있는 값을 customer라는 이름으로 가져와서 loginService.login에 값 넣어서 받음)
+		// ↑서비스를 썼으면 서비스 안에 값을 불러와야 한다. (28, 32, 36번 줄에 서비스 객체 생성한게 있음)		
+		// 리스트에서 객체를 가져온 다음 값을 가져온다
+		// System.out.println(customerService.login(y.getUserId()).get(0).getUserId()); : dao에 query 쓸때 쓰는 방법
 		
 		//5 ↓ 끝 
  		if(customer.getPasswd().equals(dbGetCustomer.getPasswd())
 				&& customer.getUserId().equals(dbGetCustomer.getUserId())) {
-			System.out.println("서비스 불러온거 - > "+loginService.login(customer.getUserId()));
+			System.out.println("서비스 불러온거 - > "+loginService.login(customer.getUserId()).getUserId());
 			System.out.println("성공");
-			return "login/successLogin"; 
+			return "/homePage"; 
 		} else {
+			model.addAttribute("아이디 또는 비밀번호를 다시 확인하세요!");
 			System.out.println("사용자가 친것 -> " + customer.getUserId() );
 			System.out.println("실패");
-			return "login/login";
+			return "/login/login";
 		}
 			
 	}
-
+	
 	// Account : 계좌 생성
 	@GetMapping("/account/addAccount")
 	public String addAccountForm() {
@@ -119,9 +138,9 @@ public class BankingController {
 	}
 
 	@PostMapping("/account/deposit")
-	public String deposit(String accountNum, double money) { // 파라미터명이랑 jsp name="" 안에 값이랑 같아야 한다
+	public String deposit(String accountNum, double amount) { // 파라미터명이랑 jsp name="" 안에 값이랑 같아야 한다
 
-		accountService.deposit(accountNum, money);
+		accountService.deposit(accountNum, amount);
 		AccountService.context.close();
 
 		return "account/successDeposit";
@@ -132,26 +151,27 @@ public class BankingController {
 	public String withdraw() {
 		return "account/withdraw";
 	}
+	
 	@PostMapping("/account/withdraw")
-	public String withdraw(String accountNum, double money) { // 파라미터명이랑 jsp name="" 안에 값이랑 같아야 한다
+	public String withdraw(String accountNum, double amount) { // 파라미터명이랑 jsp name="" 안에 값이랑 같아야 한다
 
-		accountService.withdraw(accountNum, money);
+		accountService.withdraw(accountNum, amount);
 		AccountService.context.close();
 
 		return "account/successWithdraw";
 	}
 
-	// getBalance : 잔고 확인
+	// Balance : 잔고 확인
 	@GetMapping("/account/balance")
 	public String balanceForm() {
 		return "account/balance";
 	}
 	
 	@PostMapping("/account/balance")
-	public String getBalance(String accountNum, Model model) {
+	public String Balance(String accountNum, Model model) {
 		List<Account> accountList = new ArrayList<Account>();
 
-		accountList = accountService.getBalance(accountNum);
+		accountList = accountService.Balance(accountNum);
 		model.addAttribute("accountList", accountList);
 		System.out.println(accountList.get(0).getBalance());
 		AccountService.context.close();
@@ -160,22 +180,21 @@ public class BankingController {
 	}
 	
 	// 이체
-//	@GetMapping("/transfer/transfer")
-//	public String tranferFomr() {
-//		return "transfer/transfer";
-//	}
-//	
-//	@PostMapping("/transfer/transfer")
-//	public String 
-//	
-//
+	@GetMapping("/transfer/transfer")
+	public String transferForm() {
+		return "transfer/transfer";
+	}
+	
+	@PostMapping("/transfer/transfer")
+	public String transfer(String sendAccount, String receiveAccount, Double amount) {
+
+		accountService.withdraw(sendAccount, amount);
+		accountService.deposit(receiveAccount, amount);
+		
+		return "transfer/successTransfer";
+	}
+
 }
-
-
-
-
-
-
 
 
 

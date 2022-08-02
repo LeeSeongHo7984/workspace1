@@ -10,7 +10,7 @@
 <body>
 	<form action="withdraw" method="post">
 	<label>출금할 계좌번호를 입력하세요 : <input type="text" name="accountNum"></label><br>
-	<label>출금할 money를 입력하세요 : <input type="text" name="money"></label><br>
+	<label>출금할 금액을 입력하세요 : <input type="text" name="amount"></label><br>
 	<input type="submit" value="출금">
 	</form>
 </body>
