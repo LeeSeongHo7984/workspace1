@@ -2,7 +2,11 @@
 <beansProjectDescription>
 	<version>1</version>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<pluginVersion><![CDATA[3.9.22.202204280911-RELEASE]]></pluginVersion>
+=======
+	<pluginVersion><![CDATA[2.5.0.201010141000-RC1]]></pluginVersion>
+>>>>>>> sh
 =======
 	<pluginVersion><![CDATA[2.5.0.201010141000-RC1]]></pluginVersion>
 >>>>>>> sh
@@ -13,8 +17,11 @@
 	<configs>
 	</configs>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<autoconfigs>
 	</autoconfigs>
+=======
+>>>>>>> sh
 =======
 >>>>>>> sh
 	<configSets>
