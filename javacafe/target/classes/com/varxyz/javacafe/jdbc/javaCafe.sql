@@ -1,0 +1,20 @@
+CREATE TABLE Menu(
+	name			VARCHAR(20)		PRIMARY KEY,
+	price			VARCHAR(20)		NOT NULL DEFAULT 0,
+	categoryName	VARCHAR(20)		NOT NULL,
+	
+	CONSTRAINT Menu_categoryName_FK
+		FOREIGN KEY(categoryName) REFERENCES Category(name)
+)
+
+DROP TABLE Menu
+
+SELECT * FROM Menu
+
+CREATE TABLE Category(
+	name	VARCHAR(20)		PRIMARY KEY
+)
+
+SELECT * FROM Category
+
+DROP TABLE Category

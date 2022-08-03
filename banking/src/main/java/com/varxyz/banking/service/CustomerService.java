@@ -1,7 +1,5 @@
 package com.varxyz.banking.service;
 
-import java.util.List;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.varxyz.banking.jdbc.DataSourceConfig;

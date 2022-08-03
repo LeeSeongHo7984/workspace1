@@ -26,13 +26,9 @@ public class BankingController {
 	// CustomerService는 interface라서 객체를 못만드니까 
 	// CustomerService를 상속받은 CustomerServiceImpl을 받는다
 	CustomerService customerService = new CustomerServiceImpl();
-	
-	// AccountService는 interface라서 객체를 못만드니까 
-	// AccountService를 상속받은 AccountServiceImpl을 받는다
+
 	AccountService accountService = new AccountServiceImpl();
-	
-	// LoginService는 interface라서 객체를 못만드니까 
-	// LoginService를 상속받은 LoginServiceImpl을 받는다
+
 	LoginService loginService = new LoginServiceImpl();
 
 //	 home : 메인 페이지
@@ -88,12 +84,13 @@ public class BankingController {
 				&& customer.getUserId().equals(dbGetCustomer.getUserId())) {
 			System.out.println("서비스 불러온거 - > "+loginService.login(customer.getUserId()).getUserId());
 			System.out.println("성공");
-			return "/homePage"; 
+			return "/homePage"; // 나중에 main 페이지 만들어서 거기로 넘어가게 설정해야 함
 		} else {
-			model.addAttribute("아이디 또는 비밀번호를 다시 확인하세요!");
+			model.addAttribute("msg", "아이디 또는 비밀번호를 다시 확인하세요!");
 			System.out.println("사용자가 친것 -> " + customer.getUserId() );
 			System.out.println("실패");
-			return "/login/login";
+			
+			return "errorMsg";
 		}
 			
 	}

@@ -1,7 +1,5 @@
 package com.varxyz.banking.service;
 
-import java.util.List;
-
 import com.varxyz.banking.mvc.dto.Customer;
 
 public class CustomerServiceImpl implements CustomerService {

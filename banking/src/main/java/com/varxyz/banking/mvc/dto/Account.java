@@ -1,14 +1,10 @@
 package com.varxyz.banking.mvc.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@ToString
 public class Account {
 	private long aid;
 	private String customerId;
