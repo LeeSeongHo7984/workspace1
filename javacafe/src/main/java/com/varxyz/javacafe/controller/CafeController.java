@@ -32,13 +32,19 @@ public class CafeController {
 		return "home/homePage";
 	}
 	
-	// 메뉴 추가 페이지
-	@GetMapping("/menu/addMenu/addMenu")
-	public String addMenuForm() {
+	// 메뉴 추가 
+	@GetMapping("/addMenu")
+	public String addMenuForm(Model model) {
+		List<Category> categoryList = new ArrayList<Category>();
+		categoryList = categoryService.findAllCaList();	// 디비에서 불러와야됨
+		
+		model.addAttribute("category", new Category());		
+		model.addAttribute("categoryList", categoryList);
+		
 		return "menu/addMenu/addMenu";
 	}
 	
-	@PostMapping("/menu/addMenu/addMenu")
+	@PostMapping("/addMenu")
 	public String addMenu(Menu menu, Model model) {
 		
 		model.addAttribute("menu", menu);
@@ -48,11 +54,10 @@ public class CafeController {
 		return "menu/addMenu/successAddMenu";
 	}
 	
-	// 카테고리 추가 페이지
+	// 카테고리 추가
 	@GetMapping("/addCategory")	// 여기는 내가 지정하고 싶은 url 주소
 	public String addCategoryForm(Model model) {
 		model.addAttribute("category", new Category());
-		
 		return "category/add/addCategory";	// jsp 경로
 	}
 
@@ -65,25 +70,47 @@ public class CafeController {
 		return "category/add/successCategory";	// jsp 경로
 	}
 	
-	//카테고리 리스트 조회
-	@GetMapping("/selectCategory")
-	public String selectCategoryForm(Model model) {
-		model.addAttribute("category", new Category());
+	//카테고리 목록 조회
+	@GetMapping("/inquiryCategory")
+	public String findAllCaList(Model model) {
+		List<Category> categoryList = new ArrayList<Category>();
+		categoryList = categoryService.findAllCaList();	// 디비에서 불러와야됨
 		
-		return "category/select/selectCategory";
+		model.addAttribute("categoryList", categoryList);
+		return "category/inquiry/inquiryCategory";
 	}
 	
 	@PostMapping("/selectCategory")
-	public String selectCategory(Category name, HttpSession session, Model model) {
-		List<Category> categoryList = new ArrayList<Category>();
+	public String findAllMenuList(Category category, HttpSession session, Model model) {
+		session.setAttribute("categoryName", category.getName());
+		System.out.println(category.getName()); // 결과 : 카테고리의 이름
 		
-		categoryList = categoryService.findAllCaList(name);
-		model.addAttribute("category", categoryList);
+		List<Menu> menuList = new ArrayList<Menu>();
+		menuList = menuService.findAllMenuList(category.getName());
+		model.addAttribute("menuList", menuList);
+		System.out.println(menuList.get(0).getName());
+		
 		CategoryService.context.close();
 		
-		return "category/select/successCategory";
+		return "menu/select/selectMenu";
 	}
 	
+	// 메뉴 목록 조회
+	@GetMapping("/selectMenu")
+	public String selectMenuForm(HttpSession session,Model model) {
+//		List<Menu> menuList = new ArrayList<Menu>();
+//		menuList = menuService.findAllMenuList((String)session.getAttribute("categoryName"));	// 디비에서 불러와야됨
+//		model.addAttribute("menuList", menuList);
+		return "menu/select/selectMenu";
+	}
+	
+	@PostMapping("/selectMenu")
+	public String selectMenu(Menu name, HttpSession session, Model model) {
+		model.addAttribute("menuList", menuService.selectMenuByCategory(name.getName()));
+		System.out.println(menuService.selectMenuByCategory(name.getName()));
+		MenuService.context.close();
+		
+		return "menu/select/successSelectMenu";
+	}
+
 }
-
-

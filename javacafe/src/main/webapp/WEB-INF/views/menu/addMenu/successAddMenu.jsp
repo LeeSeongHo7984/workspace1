@@ -7,6 +7,7 @@
 <title>Cafe</title>
 </head>
 <body>
-	메뉴 추가 성공
+	<label>메뉴 추가 성공</label><br>
+	<button type="button" onclick="location.href='/javacafe/home/homePage'">확인</button>
 </body>
 </html>

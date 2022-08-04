@@ -26,10 +26,17 @@ public class CategoryDao {
 	}
 	
 	// 카테고리 리스트
-	public List<Category> findAllCaList(Category name) {
+	public List<Category> findAllCaList() {
 		String sql = "SELECT * FROM Category";
-		
+
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Category>(Category.class));
+	}
+	
+	// 카테고리 이름 목록
+	public List<Category> selectMenutList(String name) {
+		String sql = "SELECT * FROM Category WHERE name = ?";
+		
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Category>(Category.class), name);
 	}
 }
 

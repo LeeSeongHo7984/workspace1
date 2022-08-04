@@ -1,7 +1,7 @@
 CREATE TABLE Menu(
-	name			VARCHAR(20)		PRIMARY KEY,
-	price			VARCHAR(20)		NOT NULL DEFAULT 0,
-	categoryName	VARCHAR(20)		NOT NULL,
+	name			VARCHAR(500)		PRIMARY KEY,
+	price			VARCHAR(20)			NOT NULL DEFAULT 0,
+	categoryName	VARCHAR(500)		NOT NULL,
 	
 	CONSTRAINT Menu_categoryName_FK
 		FOREIGN KEY(categoryName) REFERENCES Category(name)

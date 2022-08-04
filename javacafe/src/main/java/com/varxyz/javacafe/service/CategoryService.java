@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.varxyz.javacafe.dao.CategoryDao;
 import com.varxyz.javacafe.dto.Category;
+import com.varxyz.javacafe.dto.Menu;
 import com.varxyz.javacafe.jdbc.DataSourceConfig;
 
 public interface CategoryService {
@@ -17,6 +18,10 @@ public interface CategoryService {
 	// 카테고리 추가
 	public void addCategory(Category category);
 	
-	// 카테고리 목록 보기
-	public List<Category> findAllCaList(Category name);
+	// 카테고리 목록 
+	public List<Category> findAllCaList();
+	
+	// 메뉴 목록 선택
+	List<Category> selectMenutList(String name);
+	
 }
