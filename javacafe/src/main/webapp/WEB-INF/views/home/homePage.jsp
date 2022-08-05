@@ -38,22 +38,29 @@
     
 <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-        <a class="text-muted" href="/javacafe/home/homePage">JavaCafe</a>
-      </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">JavaCafe</a>
+        <a class="blog-header-logo text-dark" href="/javacafe/home/homePage" style="margin-left: 50px;">JavaCafe</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
       </div>
     </div>
   </header>
-	  
-	<!-- 코드 시작 -->
-	<form action="homePage" method="post" style="width: 80%; height: 300px;">
-	<input type="button" value="카테고리 선택" onClick="location.href='/javacafe/inquiryCategory'">
-  </form>
+  
+  
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading" style="margin-top: 80px; margin-bottom: 100px; text-align: center; font-size: 100px;">Welcome JavaCafe</h1>
+    <p class="lead" style="text-align: center;font-weight: bold;font-size: 40px;">자바카페에 오신걸 환영합니다!!<br>오늘도 즐거운 하루 되세요</p>
+    <p class="lead">
+        <form action="homePage" method="post" style="width: 100%;">
+		<input type="button" value="카테고리 선택"  class="btn btn-lg btn-secondary" onClick="location.href='/javacafe/inquiryCategory'" style="margin-top: 150px; width: 600px;">
+  	</form>
+    </p>
+  </main>
+  
   
     <!-- FOOTER -->
   <footer class="blog-footer">

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.varxyz.javacafe.dto.Category;
@@ -87,13 +86,20 @@ public class CafeController {
 		
 		List<Menu> menuList = new ArrayList<Menu>();
 		menuList = menuService.findAllMenuList(category.getName());
+		
 		model.addAttribute("menuList", menuList);
-		System.out.println(menuList.get(0).getName());
+		System.out.println(menuList.get(0).getName());	// 결과 : 메뉴 이름
 		
 		CategoryService.context.close();
 		
-		return "menu/select/selectMenu";
-	}
+		if(category.getName().equals(menuList.get(0).getCategoryName()) ) {
+			return "menu/select/selectMenu";
+		} else {
+			model.addAttribute("msg", "죄송합니다.상품이 준비중입니다");
+			return "errorMsg";
+		}
+		
+}
 	
 	// 메뉴 목록 조회
 	@GetMapping("/selectMenu")
@@ -107,10 +113,17 @@ public class CafeController {
 	@PostMapping("/selectMenu")
 	public String selectMenu(Menu name, HttpSession session, Model model) {
 		model.addAttribute("menuList", menuService.selectMenuByCategory(name.getName()));
-		System.out.println(menuService.selectMenuByCategory(name.getName()));
+//		System.out.println(menuService.selectMenuByCategory(name.getName()));
 		MenuService.context.close();
 		
 		return "menu/select/successSelectMenu";
+	}
+	
+	
+	@GetMapping("/successPayment")
+	public String PaymentForm(HttpSession session, Model model) {
+		
+		return "payment/successPayment";
 	}
 
 }

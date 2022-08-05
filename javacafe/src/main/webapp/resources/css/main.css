@@ -85,7 +85,7 @@ a {
 
 .row {
     display: -ms-flexbox;
-    display: flex;
+    display: inline-flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 	margin-right: 50px;
@@ -102,7 +102,7 @@ a {
     background-color: #f9f9f9;
     border-top: 0.05rem solid #e5e5e5;
     position : relative;
-  	transform : translateY(280%);
+  	transform : translateY(46%);
 }
 
 p {
@@ -118,5 +118,20 @@ p {
     margin-bottom: 0;
 }
 
-
+.btn-secondary {
+	border: 1px solid black;
+    box-sizing: border-box;
+    display: block;
+    align-items: center;
+    width: 150px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    margin-top: 40px;
+}
 
