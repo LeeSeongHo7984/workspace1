@@ -3,3 +3,6 @@
 *.properties
 *.log
 *.properties
+.metadata/.plugins/com.genuitec.eclipse.monitor/myeclipse-usage.properties
+.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
+*.log
