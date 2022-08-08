@@ -23,3 +23,6 @@ javacafe/target/classes/com/varxyz/javacafe/controller/CafeController.class
 *.json
 .metadata/.plugins/com.genuitec.eclipse.monitor/myeclipse-usage.properties
 .metadata/.plugins/com.genuitec.eclipse.devstyle/recent.json
+.metadata/.log
+*.json
+.metadata/.plugins/com.genuitec.eclipse.devstyle/recent.json
