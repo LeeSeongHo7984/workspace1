@@ -3,6 +3,7 @@ package com.varxyz.javacafe.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -80,7 +81,7 @@ public class CafeController {
 	}
 	
 	@PostMapping("/selectCategory")
-	public String findAllMenuList(Category category, HttpSession session, Model model) {
+	public String findAllMenuList(Category category, HttpServletRequest request,HttpSession session, Model model) {
 		session.setAttribute("categoryName", category.getName());
 		System.out.println(category.getName()); // 결과 : 카테고리의 이름
 		
@@ -115,8 +116,7 @@ public class CafeController {
 		MenuService.context.close();
 		
 		return "menu/select/successSelectMenu";
-	}
-	
+}
 	
 	@GetMapping("/successPayment")
 	public String PaymentForm(HttpSession session, Model model) {
