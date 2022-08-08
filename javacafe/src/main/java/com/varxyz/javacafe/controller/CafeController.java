@@ -104,9 +104,7 @@ public class CafeController {
 	// 메뉴 목록 조회
 	@GetMapping("/selectMenu")
 	public String selectMenuForm(HttpSession session,Model model) {
-//		List<Menu> menuList = new ArrayList<Menu>();
-//		menuList = menuService.findAllMenuList((String)session.getAttribute("categoryName"));	// 디비에서 불러와야됨
-//		model.addAttribute("menuList", menuList);
+
 		return "menu/select/selectMenu";
 	}
 	
