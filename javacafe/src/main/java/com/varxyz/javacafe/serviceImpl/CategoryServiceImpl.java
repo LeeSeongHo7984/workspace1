@@ -24,4 +24,10 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> selectMenutList(String name) {
 		return categoryDao.selectMenutList(name);
 	}
+
+	// 카테고리 수정
+	@Override
+	public void modifyCategory(String afterName, String name) {
+		categoryDao.modifyCategory(afterName, name);
+	}
 }

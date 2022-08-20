@@ -38,5 +38,12 @@ public class CategoryDao {
 		
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Category>(Category.class), name);
 	}
+
+	// 카테고리 수정	
+	public void modifyCategory(String afterName, String name) {
+		String sql = "UPDATE Category SET name =? WHERE name = ?";	//  앞에 name이 afterName, 뒤에 name이 기존 name 
+		
+		jdbcTemplate.update(sql, afterName, name);
+	}
 }
 

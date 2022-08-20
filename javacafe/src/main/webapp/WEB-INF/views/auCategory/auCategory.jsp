@@ -42,7 +42,7 @@
         <a class="blog-header-logo text-dark" href="/javacafe/home/homePage" style="margin-left: 50px;">JavaCafe</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
@@ -50,18 +50,17 @@
     </div>
   </header>
   
-  
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading" style="margin-top: 80px; margin-bottom: 100px; text-align: center; font-size: 100px;">Welcome JavaCafe</h1>
-    <p class="lead" style="text-align: center;font-weight: bold;font-size: 40px;">자바카페에 오신걸 환영합니다!!<br>오늘도 즐거운 하루 되세요</p>
-    <p class="lead">
-        <form action="homePage" method="post" style="width: 100%;">
-		<input type="button" value="카테고리 선택"  class="btn btn-lg btn-secondary" onClick="location.href='/javacafe/inquiryCategory'" style="margin-top: 150px; width: 600px;">
-  	</form>
-    </p>
-  </main>
-  
-  
+  	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+		<span>Category</span>
+	</div>
+		
+		<button type="button" value="추가" onClick="location.href='/javacafe/addCategory'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 100px; width: 250px;">추가</button>
+		
+		<button type="button" value="수정" onClick="location.href='/javacafe/modifyCategory'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 100px; width: 250px;">수정</button>
+
+
     <!-- FOOTER -->
   <footer class="blog-footer">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>

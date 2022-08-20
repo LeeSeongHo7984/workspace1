@@ -24,4 +24,7 @@ public interface CategoryService {
 	// 메뉴 목록 선택
 	List<Category> selectMenutList(String name);
 	
+	// 카테고리 수정
+	public void modifyCategory(String afterName, String name);
+	
 }

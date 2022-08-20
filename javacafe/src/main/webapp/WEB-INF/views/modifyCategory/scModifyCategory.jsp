@@ -42,28 +42,23 @@
         <a class="blog-header-logo text-dark" href="/javacafe/home/homePage" style="margin-left: 50px;">JavaCafe</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
       </div>
     </div>
   </header>
-  
-  
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading" style="margin-top: 80px; margin-bottom: 100px; text-align: center; font-size: 100px;">Welcome JavaCafe</h1>
-    <p class="lead" style="text-align: center;font-weight: bold;font-size: 40px;">자바카페에 오신걸 환영합니다!!<br>오늘도 즐거운 하루 되세요</p>
-    <p class="lead">
-        <form action="homePage" method="post" style="width: 100%;">
-		<input type="button" value="카테고리 선택"  class="btn btn-lg btn-secondary" onClick="location.href='/javacafe/inquiryCategory'" style="margin-top: 150px; width: 600px;">
-  	</form>
-    </p>
-  </main>
-  
-  
-    <!-- FOOTER -->
-  <footer class="blog-footer">
+  	
+  	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+		<span>카테고리 수정이 완료되었습니다</span>
+	</div>
+	
+	<button type="button" onClick="location.href='home/homePage'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 100px; width: 250px;">완료</button>
+
+	  <!-- FOOTER -->
+  <footer class="blog-footer" style="transform: translateY(116%);">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>
     <a href="#">Back to top</a>

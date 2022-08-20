@@ -53,6 +53,7 @@
   	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
 		<span>추가하실 카테고리를 입력하세요</span>
 	</div>
+	
 	<form action="success" method="post">
 		<input type="text"  name="name" 
 		style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 80px; font-size: 30px;"><br>

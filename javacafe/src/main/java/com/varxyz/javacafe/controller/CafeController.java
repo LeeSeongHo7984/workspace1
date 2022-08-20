@@ -31,7 +31,7 @@ public class CafeController {
 	public String homePageForm() {
 		return "home/homePage";
 	}
-
+	
 	// 메뉴 추가
 	@GetMapping("/addMenu")
 	public String addMenuForm(Model model) {
@@ -52,6 +52,35 @@ public class CafeController {
 		MenuService.context.close();
 
 		return "menu/addMenu/successAddMenu";
+	}
+	
+	// 메뉴 목록 조회
+	@GetMapping("/selectMenu")
+	public String selectMenuForm(HttpSession session, Model model) {
+
+		return "menu/select/selectMenu";
+	}
+
+	@PostMapping("/selectMenu")
+	public String selectMenu(Menu name, HttpSession session, Model model) {
+		model.addAttribute("menuList", menuService.selectMenuByCategory(name.getName()));
+//		System.out.println(menuService.selectMenuByCategory(name.getName()));
+		MenuService.context.close();
+
+		return "menu/select/successSelectMenu";
+	}
+
+	@GetMapping("/successPayment")
+	public String PaymentForm(HttpSession session, Model model) {
+
+		return "payment/successPayment";
+	}
+	
+	// 카테고리 추가, 수정 화면
+	@GetMapping("/auCategory")
+	public String auCategoryForm() {
+		
+		return "auCategory/auCategory";
 	}
 
 	// 카테고리 추가
@@ -125,27 +154,26 @@ public class CafeController {
 		
 		return "errorMsg";
 	}
-
-	// 메뉴 목록 조회
-	@GetMapping("/selectMenu")
-	public String selectMenuForm(HttpSession session, Model model) {
-
-		return "menu/select/selectMenu";
+	
+	// 카테고리 수정 선택
+	@GetMapping("/modifyCategory")
+	public String updateCategoryForm(Model model) {
+		
+		List<Category> categoryList = new ArrayList<Category>();
+		categoryList = categoryService.findAllCaList();
+		
+		model.addAttribute("categoryList", categoryList);
+		
+		return "modifyCategory/modifyCategory";
 	}
-
-	@PostMapping("/selectMenu")
-	public String selectMenu(Menu name, HttpSession session, Model model) {
-		model.addAttribute("menuList", menuService.selectMenuByCategory(name.getName()));
-//		System.out.println(menuService.selectMenuByCategory(name.getName()));
-		MenuService.context.close();
-
-		return "menu/select/successSelectMenu";
-	}
-
-	@GetMapping("/successPayment")
-	public String PaymentForm(HttpSession session, Model model) {
-
-		return "payment/successPayment";
+	
+	@PostMapping("/modifyCategory")
+	public String  modifyCategory(String afterName, String name) {
+		System.out.println(afterName);
+		System.out.println(name);
+		categoryService.modifyCategory(afterName,  name);	
+		
+		return "modifyCategory/scModifyCategory";
 	}
 
 }
