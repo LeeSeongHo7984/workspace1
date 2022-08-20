@@ -63,11 +63,25 @@ public class CafeController {
 
 	@PostMapping("/success") // jsp에 action값이랑 맞춰야 한다
 	public String addCategory(Category category, Model model) {
-
+		
+		if(category.getName() == null || category.getName() == "") {
+			model.addAttribute("msg", "카테고리를 입력해주세요");
+			
+			return "errorMsg";
+		}
+		
+//		if(category.getName().equals(categoryService.findAllCaList().get(0).getName())) {
+//			System.out.println(categoryService.findAllCaList().get(0).getName());
+//			model.addAttribute("msg", "이미 존재하는 카테고리 입니다");
+//			
+//			return "errorMsg";
+//		}
+		
 		model.addAttribute("category", category);
 		categoryService.addCategory(category);
 
 		return "category/add/successCategory"; // jsp 경로
+
 	}
 
 	// 카테고리 목록 조회
@@ -83,22 +97,33 @@ public class CafeController {
 	@PostMapping("/selectCategory")
 	public String findAllMenuList(Category category, HttpServletRequest request, HttpSession session, Model model) {
 		List<Menu> menuList = new ArrayList<Menu>();
+		List<Category> categoryList = new ArrayList<Category>();
+		System.out.println("카테고리 리스트 값 : " +  categoryList);
 		menuList = menuService.findAllMenuList(category.getName());
-		
-		if(!category.getName().equals("unknown")) {
-			session.setAttribute("categoryName", category.getName());
-			System.out.println(category.getName()); // 결과 : 선택한 카테고리의 이름
-			
-			model.addAttribute("menuList", menuList);
-			System.out.println(menuList.get(0).getName()); // 결과 : 메뉴 이름
-			
-			CategoryService.context.close();
-			return "menu/select/selectMenu";
-		}else {
-			model.addAttribute("msg", "category select plz");
-			return "errorMsg";
-		}
 
+		try {
+			if(!category.getName().equals("unknown")) {
+				session.setAttribute("categoryName", category.getName());
+				System.out.println(category.getName()); // 결과 : 선택한 카테고리의 이름
+				
+				model.addAttribute("menuList", menuList);
+				System.out.println(menuList.get(0).getName()); // 결과 : 메뉴 이름
+				
+				CategoryService.context.close();
+				
+				return "menu/select/selectMenu";
+			}
+		} catch (Exception e) {
+			if(categoryList.size() == 0) {
+			model.addAttribute("msg", "죄송합니다, 준비중인 상품입니다");
+			
+			return "errorMsg";
+			}
+		}
+		
+		model.addAttribute("msg", "카테고리를 선택해 주세요");
+		
+		return "errorMsg";
 	}
 
 	// 메뉴 목록 조회
