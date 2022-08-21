@@ -8,6 +8,8 @@
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
+			<item value="제출"/>
+			<item value="addCate"/>
 			<item value=" &lt;artifactId&gt;spring-data-commons&lt;/artifactId&gt;"/>
 			<item value="test"/>
 			<item value=".row"/>

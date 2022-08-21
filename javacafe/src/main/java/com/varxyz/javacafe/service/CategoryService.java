@@ -26,5 +26,8 @@ public interface CategoryService {
 	
 	// 카테고리 수정
 	public void modifyCategory(String afterName, String name);
+
+	// 카테고리 삭제
+	public void deleteCategory(String name);
 	
 }

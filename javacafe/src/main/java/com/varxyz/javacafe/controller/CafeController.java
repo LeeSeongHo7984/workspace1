@@ -76,7 +76,7 @@ public class CafeController {
 		return "payment/successPayment";
 	}
 	
-	// 카테고리 추가, 수정 화면
+	// 카테고리 추가
 	@GetMapping("/auCategory")
 	public String auCategoryForm() {
 		
@@ -93,25 +93,26 @@ public class CafeController {
 	@PostMapping("/success") // jsp에 action값이랑 맞춰야 한다
 	public String addCategory(Category category, Model model) {
 		
-		if(category.getName() == null || category.getName() == "") {
-			model.addAttribute("msg", "카테고리를 입력해주세요");
+		try {
+			if(category.getName() == null || category.getName() == "") {
+				model.addAttribute("msg", "카테고리를 입력해주세요");
+				
+				return "errorMsg";
+			}
+		} catch (IllegalStateException e) {
+			if(categoryService.findAllCaList().size() > 0) {
+			model.addAttribute("msg", "이미 존재하는 카테고리 입니다");
 			
 			return "errorMsg";
+			}
 		}
-		
-//		if(category.getName().equals(categoryService.findAllCaList().get(0).getName())) {
-//			System.out.println(categoryService.findAllCaList().get(0).getName());
-//			model.addAttribute("msg", "이미 존재하는 카테고리 입니다");
-//			
-//			return "errorMsg";
-//		}
 		
 		model.addAttribute("category", category);
 		categoryService.addCategory(category);
 
 		return "category/add/successCategory"; // jsp 경로
 
-	}
+}
 
 	// 카테고리 목록 조회
 	@GetMapping("/inquiryCategory")
@@ -155,7 +156,7 @@ public class CafeController {
 		return "errorMsg";
 	}
 	
-	// 카테고리 수정 선택
+	// 카테고리 선택 및 수정
 	@GetMapping("/modifyCategory")
 	public String updateCategoryForm(Model model) {
 		
@@ -174,6 +175,14 @@ public class CafeController {
 		categoryService.modifyCategory(afterName,  name);	
 		
 		return "modifyCategory/scModifyCategory";
+	}
+	
+	// 카테고리 삭제
+	@PostMapping("/deleteCategory")
+	public String deleteCategory(String name) {
+		categoryService.deleteCategory(name);
+		
+		return "modifyCategory/scDeleteCategory";
 	}
 
 }

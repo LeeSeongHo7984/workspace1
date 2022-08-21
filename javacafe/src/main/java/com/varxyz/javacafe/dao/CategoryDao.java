@@ -45,5 +45,11 @@ public class CategoryDao {
 		
 		jdbcTemplate.update(sql, afterName, name);
 	}
+
+	public void deleteCategory(String name) {
+		String sql = "DELETE FROM Category WHERE name = ?";
+		
+		jdbcTemplate.update(sql, name);
+	}
 }
 

@@ -66,7 +66,23 @@
 		<input type="text"  name="afterName" 
 			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 80px; font-size: 30px;"><br>
 			<button class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">수정</button>
+		margin-top: 100px; width: 250px;">카테고리 수정</button>
+	</form>
+	
+	
+	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+		<span>삭제할 카테고리 선택</span>
+	</div>
+	<form action="deleteCategory" method="post">
+		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+			background-color: black; color: white; font-weight: bold; font-size: 15px;">
+		<option value="unknown">-- 선택 --</option>
+		<c:forEach var="category" items="${categoryList}">
+		<option value="${category.name}">${category.name}</option>
+		</c:forEach>
+	</select><br>
+		<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 100px; width: 250px;">카테고리 삭제</button>
 	</form>
 
     <!-- FOOTER -->

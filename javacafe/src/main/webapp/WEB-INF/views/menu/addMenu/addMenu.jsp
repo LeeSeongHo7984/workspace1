@@ -54,10 +54,13 @@
   	<span>메뉴 추가</span>
   	</div>
 	<form action="addMenu" method="post" style="text-align: center; font-size: 25px; margin-top: 30px;">
-		<label>추가하실 메뉴를 입력하세요 : </label><input type="text"  name="name"><br>
-		<label>추가하실 메뉴의 가격을 입력하세요 : <input type="text"  name="price"></label><br>
-		<label>추가하실 메뉴의 카테고를 선택하세요</label>
-		<select name="categoryName">	<!-- 도메인에 변수명이랑 같아야함 -->
+		<label>추가하실 메뉴를 입력하세요</label><br>
+		<input type="text"  name="name" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px;"><br>
+		<label>추가하실 메뉴의 가격을 입력하세요</label><br>
+		<input type="text"  name="price" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px;"><br>
+		<label>추가하실 메뉴의 카테고를 선택하세요</label><br>
+		<select name="categoryName" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
+					background-color: black; color: white; font-weight: bold; font-size: 15px;"> <!-- 도메인에 변수명이랑 같아야함 -->
 			<option value="unknown">--선택--</option>
 			<c:forEach var="category" items="${categoryList}">
 			<option value="${category.name}">${category.name}</option>

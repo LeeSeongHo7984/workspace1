@@ -30,4 +30,9 @@ public class CategoryServiceImpl implements CategoryService {
 	public void modifyCategory(String afterName, String name) {
 		categoryDao.modifyCategory(afterName, name);
 	}
+
+	// 카테고리 삭제
+	public void deleteCategory(String name) {
+		categoryDao.deleteCategory(name);
+	}
 }
