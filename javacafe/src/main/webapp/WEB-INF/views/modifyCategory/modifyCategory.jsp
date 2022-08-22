@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page import="java.net.URLEncoder"%>
 <!doctype html>
 <html lang="en">
@@ -43,38 +42,38 @@
         <a class="blog-header-logo text-dark" href="/javacafe/home/homePage" style="margin-left: 50px;">JavaCafe</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
       </div>
     </div>
   </header>
   
-  	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+  	<div style="font-size: 50px; margin-top: 50px; text-align: center; font-weight: bold;">
 		<span>수정할 카테고리 선택</span>
 	</div>
 	
 	<form action="modifyCategory" method="post">
-	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 					background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">-- 선택 --</option>
 		<c:forEach var="category" items="${categoryList}">
 		<option value="${category.name}">${category.name}</option>
 		</c:forEach>
 	</select><br>
-		<input type="text"  name="afterName" 
-			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 80px; font-size: 30px;"><br>
+	
+		<input type="text"  name="afterName" placeholder="바꾸실 카테고리명을 입력하세요"
+			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 30px; font-size: 30px;"><br>
 			<button class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">카테고리 수정</button>
+		margin-top: 20px; width: 250px;">카테고리 수정</button>
 	</form>
 	
-	
-	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
-		<span>삭제할 카테고리 선택</span>
+	<div style="font-size: 50px;border-top: 1px solid #e5e5e5;margin-top: 50px;text-align: center;font-weight: bold;">
+		<div style="margin-top: 50px;">삭제할 카테고리 선택</div>
 	</div>
 	<form action="deleteCategory" method="post">
-		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 			background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">-- 선택 --</option>
 		<c:forEach var="category" items="${categoryList}">
@@ -82,7 +81,7 @@
 		</c:forEach>
 	</select><br>
 		<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">카테고리 삭제</button>
+		margin-top: 20px; width: 250px;">카테고리 삭제</button>
 	</form>
 
     <!-- FOOTER -->

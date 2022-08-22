@@ -42,36 +42,36 @@
         <a class="blog-header-logo text-dark" href="/javacafe/home/homePage" style="margin-left: 50px;">JavaCafe</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
       </div>
     </div>
   </header>
   
-  	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+  	<div style="font-size: 50px; margin-top: 50px; text-align: center; font-weight: bold;">
   	<span>메뉴 추가</span>
   	</div>
 	<form action="addMenu" method="post" style="text-align: center; font-size: 25px; margin-top: 30px;">
+		<label>추가하실 메뉴의 카테고를 선택하세요</label><br>
+		<select name="categoryName" style=" margin-top: 50px; margin-bottom: 50px; width: 500px; height: 50px; text-align: center; 
+			background-color: black; color: white; font-weight: bold; font-size: 15px;"> <!-- 도메인에 변수명이랑 같아야함 -->
+				<option value="unknown">--선택--</option>
+					<c:forEach var="category" items="${categoryList}">
+				<option value="${category.name}">${category.name}</option>
+			</c:forEach>
+		</select><br>
 		<label>추가하실 메뉴를 입력하세요</label><br>
 		<input type="text"  name="name" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px;"><br>
 		<label>추가하실 메뉴의 가격을 입력하세요</label><br>
 		<input type="text"  name="price" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px;"><br>
-		<label>추가하실 메뉴의 카테고를 선택하세요</label><br>
-		<select name="categoryName" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
-					background-color: black; color: white; font-weight: bold; font-size: 15px;"> <!-- 도메인에 변수명이랑 같아야함 -->
-			<option value="unknown">--선택--</option>
-			<c:forEach var="category" items="${categoryList}">
-			<option value="${category.name}">${category.name}</option>
-			</c:forEach>
-		</select><br>
 		<input type="submit" value="추가" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 165px; width: 250px;"/>
+		margin-top: 30px; width: 250px;"/>
 	</form>
 	
 		  <!-- FOOTER -->
-  <footer class="blog-footer" style="transform: translateY(116%);">
+  <footer class="blog-footer" style="transform: translateY(30%); ">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>
     <a href="#">Back to top</a>

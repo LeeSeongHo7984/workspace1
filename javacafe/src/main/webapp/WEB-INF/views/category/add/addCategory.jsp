@@ -42,10 +42,10 @@
         <a class="blog-header-logo text-dark" href="/javacafe/home/homePage" style="margin-left: 50px;">JavaCafe</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auCategory'" style="font-weight: bold; font-size: 16px; margin-left: 1250px;">Category(관리자)</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/addMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
+        <a class="btn btn-sm btn-outline-secondary" onClick="location.href='/javacafe/auMenu'" style="font-weight: bold; font-size: 16px;">Menu(관리자)</a>
       </div>
     </div>
   </header>
@@ -55,7 +55,7 @@
 	</div>
 	
 	<form action="success" method="post">
-		<input type="text"  name="name" 
+		<input type="text"  name="name" placeholder="추가하실 카테고리를 입력하세요"
 		style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 80px; font-size: 30px;"><br>
 		<input type="submit" value="추가" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
 		margin-top: 100px; width: 250px;"/>
@@ -64,7 +64,7 @@
 	
 	
 	  <!-- FOOTER -->
-  <footer class="blog-footer" style="transform: translateY(116%);">
+  <footer class="blog-footer" style="transform: translateY(111%);">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>
     <a href="#">Back to top</a>

@@ -51,18 +51,45 @@
   </header>
   
   	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
-		<span>Category</span>
+		<span>수정할 메뉴 선택</span>
 	</div>
-		
-		<button type="button" value="추가" onClick="location.href='/javacafe/addCategory'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">추가</button>
-		
-		<button type="button" value="수정" onClick="location.href='/javacafe/modifyCategory'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">수정</button>
-
+	
+	<!-- 메뉴수정 코드시작 -->
+	<form action="modifyMenu" method="post">
+	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+					background-color: black; color: white; font-weight: bold; font-size: 15px;">
+		<option value="unknown">-- 선택 --</option>
+		<c:forEach var="menu" items="${menuList}">
+		<option value="${menu.name}">${menu.name}</option>
+		</c:forEach>
+	</select><br>
+	
+		<input type="text"  name="afterName" placeholder="바꾸실 메뉴명을 입력하세요"
+			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 80px; font-size: 30px;"><br>
+			<button class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 100px; width: 250px;">메뉴 수정</button>
+	</form>
+	<!-- 코드 끝 -->
+	
+	<!-- 메뉴삭제 코드시작 -->
+	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+		<span>삭제할 메뉴 선택</span>
+	</div>
+	<form action="deleteMenu" method="post">
+		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+			background-color: black; color: white; font-weight: bold; font-size: 15px;">
+		<option value="unknown">-- 선택 --</option>
+		<c:forEach var="menu" items="${menuList}">
+		<option value="${menu.name}">${menu.name}</option>
+		</c:forEach>
+	</select><br>
+		<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 100px; width: 250px;">카테고리 삭제</button>
+	</form>
+	<!-- 코드 끝 -->
 
     <!-- FOOTER -->
-  <footer class="blog-footer" style="transform: translateY(140%);">
+  <footer class="blog-footer">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>
     <a href="#">Back to top</a>

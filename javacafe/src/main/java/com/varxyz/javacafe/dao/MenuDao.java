@@ -24,9 +24,16 @@ public class MenuDao {
 		
 		jdbcTemplate.update(sql, menu.getName(), menu.getPrice(), menu.getCategoryName());
 	}
+	
+	// 카테고리 구분 없이 모든 메뉴만 검색
+	public List<Menu> findAllMenuList() {
+		String sql = "SELECT * FROM Menu";
+		
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Menu>(Menu.class));
+	}
 
 	// 메뉴 리스트
-	public List<Menu> findAllMenuList(String categoryName) {
+	public List<Menu> findAllMenuListByCn(String categoryName) {
 		String sql = "SELECT * FROM Menu WHERE categoryName = ?";
 
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Menu>(Menu.class), categoryName);
@@ -37,6 +44,13 @@ public class MenuDao {
 		String sql = "SELECT * FROM Menu WHERE name = ?";
 		
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Menu>(Menu.class), name);
+	}
+
+	// 메뉴 수정
+	public void modifyMenu(String afterName, String name) {
+		String sql = "UPDATE Menu SET name = ? WHERE name = ?";
+		
+		jdbcTemplate.update(sql, afterName, name);
 	}
 	
 	

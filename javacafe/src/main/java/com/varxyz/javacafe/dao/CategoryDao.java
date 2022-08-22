@@ -41,11 +41,12 @@ public class CategoryDao {
 
 	// 카테고리 수정	
 	public void modifyCategory(String afterName, String name) {
-		String sql = "UPDATE Category SET name =? WHERE name = ?";	//  앞에 name이 afterName, 뒤에 name이 기존 name 
+		String sql = "UPDATE Category SET name = ? WHERE name = ?";	//  앞에 name이 afterName, 뒤에 name이 기존 name 
 		
 		jdbcTemplate.update(sql, afterName, name);
 	}
 
+	// 카테고리 삭제
 	public void deleteCategory(String name) {
 		String sql = "DELETE FROM Category WHERE name = ?";
 		

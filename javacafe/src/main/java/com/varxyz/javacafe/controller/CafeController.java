@@ -32,6 +32,13 @@ public class CafeController {
 		return "home/homePage";
 	}
 	
+	// 메뉴 추가 및 수정화면
+	@GetMapping("/auMenu")
+	public String auMenuFrom() {
+		
+		return "auMenu/auMenu";
+	}
+	
 	// 메뉴 추가
 	@GetMapping("/addMenu")
 	public String addMenuForm(Model model) {
@@ -64,12 +71,31 @@ public class CafeController {
 	@PostMapping("/selectMenu")
 	public String selectMenu(Menu name, HttpSession session, Model model) {
 		model.addAttribute("menuList", menuService.selectMenuByCategory(name.getName()));
-//		System.out.println(menuService.selectMenuByCategory(name.getName()));
 		MenuService.context.close();
 
 		return "menu/select/successSelectMenu";
 	}
 
+	// 메뉴 목록 수정
+	@GetMapping("/modifyMenu") 
+	public String modifyMenuFrom(String name, Model model) {
+		
+		List<Menu> menuList = new ArrayList<Menu>();
+		
+		menuList= menuService.findAllMenuList();
+		model.addAttribute("menuList", menuList);
+		
+		return "modifyMenu/modifyMenu";
+	}
+	
+	@PostMapping("/modifyMenu")
+	public String modifyMenu(String afterName, String name) {
+		menuService.modifyMenu(afterName, name);
+		
+		return "null";
+	}
+	
+	// 결제화면
 	@GetMapping("/successPayment")
 	public String PaymentForm(HttpSession session, Model model) {
 
@@ -129,7 +155,7 @@ public class CafeController {
 		List<Menu> menuList = new ArrayList<Menu>();
 		List<Category> categoryList = new ArrayList<Category>();
 		System.out.println("카테고리 리스트 값 : " +  categoryList);
-		menuList = menuService.findAllMenuList(category.getName());
+		menuList = menuService.findAllMenuListByCn(category.getName());
 
 		try {
 			if(!category.getName().equals("unknown")) {

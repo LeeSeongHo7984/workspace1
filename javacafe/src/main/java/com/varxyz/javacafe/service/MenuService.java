@@ -19,10 +19,17 @@ public interface MenuService {
 	public void addMenu(Menu menu);
 
 	// 메뉴 리스트
-	public List<Menu> findAllMenuList(String categoryName);
+	public List<Menu> findAllMenuListByCn(String categoryName);
+	
+	// 메뉴만 가져오기
+	public List<Menu> findAllMenuList();
 	
 	//메뉴 선택
 	public List<Menu> selectMenuByCategory(String name);
-
+	
+	// 메뉴 수정
+	public void modifyMenu(String afterName, String name);
+	
+	
 	
 }
