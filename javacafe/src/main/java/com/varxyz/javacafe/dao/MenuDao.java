@@ -3,11 +3,9 @@ package com.varxyz.javacafe.dao;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
 
 import com.varxyz.javacafe.dto.Menu;
 
@@ -21,10 +19,9 @@ public class MenuDao {
 	
 	// 메뉴 추가
 	public void addMenu(Menu menu) {
-		String sql = "INSERT INTO Menu (name, price, categoryName) "
-					+ "VALUES (?, ?, ?)";
+		String sql = "INSERT INTO Menu (name, price, categoryName) VALUES (?, ?, ?)";
 		
-		jdbcTemplate.update(sql, menu.getName(), menu.getPrice(), menu.getCategoryName());
+		jdbcTemplate.update(sql,menu.getName(),  menu.getPrice(), menu.getCategoryName());
 	}
 
 	// 메뉴 리스트
