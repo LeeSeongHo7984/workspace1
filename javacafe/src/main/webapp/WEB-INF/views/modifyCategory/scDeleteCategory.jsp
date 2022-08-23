@@ -50,15 +50,15 @@
     </div>
   </header>
   	
-  	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
-		<span>카테고리 삭제가 완료되었습니다</span>
+  	<div style="font-size: 50px; margin-top: 180px; text-align: center; font-weight: bold;">
+		<span style="font-size: 80px;">카테고리 삭제가 완료되었습니다</span>
 	</div>
 	
 	<button type="button" onClick="location.href='home/homePage'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">완료</button>
+		margin-top: 180px; width: 250px;">완료</button>
 
 	  <!-- FOOTER -->
-  <footer class="blog-footer" style="transform: translateY(116%);">
+  <footer class="blog-footer" style="transform: translateY(133%);">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>
     <a href="#">Back to top</a>

@@ -2,6 +2,8 @@ package com.varxyz.javacafe.serviceImpl;
 
 import java.util.List;
 
+import org.springframework.ui.Model;
+
 import com.varxyz.javacafe.dto.Menu;
 import com.varxyz.javacafe.service.MenuService;
 
@@ -31,9 +33,15 @@ public class MenuServiceImpl implements MenuService {
 
 	// 메뉴 수정
 	@Override
-	public void modifyMenu(String afterName, String name) {
-		menuDao.modifyMenu(afterName, name);
+	public void modifyMenu(String afterName, int price, String name) {
+		menuDao.modifyMenu(afterName, price, name);
 		
+	}
+
+	// 메뉴 삭제
+	@Override
+	public void deleteMenu(String name) {
+		menuDao.deleteMenu(name);
 	}
 	
 }

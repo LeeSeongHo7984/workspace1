@@ -57,20 +57,21 @@
 		<label>추가하실 메뉴의 카테고를 선택하세요</label><br>
 		<select name="categoryName" style=" margin-top: 50px; margin-bottom: 50px; width: 500px; height: 50px; text-align: center; 
 			background-color: black; color: white; font-weight: bold; font-size: 15px;"> <!-- 도메인에 변수명이랑 같아야함 -->
-				<option value="unknown">--선택--</option>
+				<option value="unknown" disabled selected="selected">--선택--</option>
 					<c:forEach var="category" items="${categoryList}">
 				<option value="${category.name}">${category.name}</option>
 			</c:forEach>
 		</select><br>
 		<label>추가하실 메뉴를 입력하세요</label><br>
-		<input type="text"  name="name" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px;"><br>
+		<input type="text"  name="name" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px; text-align: center;"><br>
 		<label>추가하실 메뉴의 가격을 입력하세요</label><br>
-		<input type="text"  name="price" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px;"><br>
+		<input type="text"  name="price" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px; text-align: center;"><br>
+		<label>추가하실 메뉴의 사진을 넣어주세요</label>
 		<input type="submit" value="추가" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
 		margin-top: 30px; width: 250px;"/>
 	</form>
 	
-		  <!-- FOOTER -->
+	<!-- FOOTER -->
   <footer class="blog-footer" style="transform: translateY(30%); ">
   <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
   <p>

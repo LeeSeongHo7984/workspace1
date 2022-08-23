@@ -50,33 +50,37 @@
     </div>
   </header>
   
-  	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
+  	<div style="font-size: 50px; margin-top: 50px; text-align: center; font-weight: bold;">
 		<span>수정할 메뉴 선택</span>
 	</div>
 	
 	<!-- 메뉴수정 코드시작 -->
 	<form action="modifyMenu" method="post">
-	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 					background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">-- 선택 --</option>
 		<c:forEach var="menu" items="${menuList}">
-		<option value="${menu.name}">${menu.name}</option>
+		<option value="${menu.name}">${menu.name} : ${menu.price}</option>
 		</c:forEach>
 	</select><br>
 	
 		<input type="text"  name="afterName" placeholder="바꾸실 메뉴명을 입력하세요"
-			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 100px; margin-top: 80px; font-size: 30px;"><br>
-			<button class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">메뉴 수정</button>
+			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br>
+		
+		<input type="text"  name="price" placeholder="바꾸실 가격을 입력하세요"
+			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br>
+		
+		<button class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 50px; width: 250px;">메뉴 수정</button>
 	</form>
 	<!-- 코드 끝 -->
 	
 	<!-- 메뉴삭제 코드시작 -->
-	<div style="font-size: 50px; margin-top: 130px; text-align: center; font-weight: bold;">
-		<span>삭제할 메뉴 선택</span>
+	<div style="font-size: 50px; margin-top: 50px; text-align: center; font-weight: bold; border-top: 1px solid #e5e5e5;">
+		<div style="margin-top: 50px;">삭제할 메뉴 선택</div>
 	</div>
 	<form action="deleteMenu" method="post">
-		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 			background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">-- 선택 --</option>
 		<c:forEach var="menu" items="${menuList}">
@@ -84,7 +88,7 @@
 		</c:forEach>
 	</select><br>
 		<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 100px; width: 250px;">카테고리 삭제</button>
+		margin-top: 50px; width: 250px;">메뉴 삭제</button>
 	</form>
 	<!-- 코드 끝 -->
 
