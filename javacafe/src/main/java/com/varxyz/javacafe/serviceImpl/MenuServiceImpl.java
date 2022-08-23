@@ -2,8 +2,6 @@ package com.varxyz.javacafe.serviceImpl;
 
 import java.util.List;
 
-import org.springframework.ui.Model;
-
 import com.varxyz.javacafe.dto.Menu;
 import com.varxyz.javacafe.service.MenuService;
 

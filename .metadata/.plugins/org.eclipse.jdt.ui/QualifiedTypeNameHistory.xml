@@ -55,9 +55,9 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.BeanPropertyRowMapper"/>
-    <fullyQualifiedTypeName name="com.varxyz.javacafe.dto.Category"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.varxyz.javacafe.service.MenuService"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.varxyz.javacafe.service.MenuService"/>
+    <fullyQualifiedTypeName name="com.varxyz.javacafe.dto.Category"/>
 </qualifiedTypeNameHistroy>

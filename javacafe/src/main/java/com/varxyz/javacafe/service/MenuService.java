@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.varxyz.javacafe.dao.MenuDao;
-import com.varxyz.javacafe.dto.Category;
 import com.varxyz.javacafe.dto.Menu;
 import com.varxyz.javacafe.jdbc.DataSourceConfig;
 

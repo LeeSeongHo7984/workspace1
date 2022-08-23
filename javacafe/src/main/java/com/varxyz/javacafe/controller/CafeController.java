@@ -56,7 +56,8 @@ public class CafeController {
 	@PostMapping("/addMenu")
 	public String addMenu(Menu menu, HttpServletRequest request, Model model) {
 		
-		if(request.getParameter("categoryName") == null) {
+		if(menu.getCategoryName() == "unknown") {
+			
 			model.addAttribute("msg", "카테고리를 선택해 주세요");
 			
 			return "errorMsg";
