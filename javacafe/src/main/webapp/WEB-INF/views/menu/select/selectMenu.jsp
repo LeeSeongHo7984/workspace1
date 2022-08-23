@@ -58,7 +58,7 @@
 		<c:forEach var="menu" items="${menuList}">
 		<!-- value에는 controller에 list로 가져온 값을 적어야 화면에 나온다(실제 값) -->
 		<!-- <option> 여기는 화면에서 사용자에게 보여질 문구 </option> -->
-		<option value="${menu.name}">${menu.name}</option>	
+		<option value="${menu.name}">${menu.name} : ${menu.price}</option>	
 		</c:forEach>
 	</select><br>
 	<input type="submit" value="확인" class="btn btn-lg btn-secondary" style="margin-top: 150px; width: 400px;" />

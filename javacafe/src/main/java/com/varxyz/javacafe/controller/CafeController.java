@@ -31,6 +31,8 @@ public class CafeController {
 	public String homePageForm() {
 		return "home/homePage";
 	}
+
+//	----------- 메뉴 영역 ---------------
 	
 	// 메뉴 추가 및 수정화면
 	@GetMapping("/auMenu")
@@ -52,12 +54,18 @@ public class CafeController {
 	}
 
 	@PostMapping("/addMenu")
-	public String addMenu(Menu menu, Model model) {
-
-		model.addAttribute("menu", menu);
+	public String addMenu(Menu menu, HttpServletRequest request, Model model) {
+		
+		if(request.getParameter("categoryName") == null) {
+			model.addAttribute("msg", "카테고리를 선택해 주세요");
+			
+			return "errorMsg";
+		} 
+		
+		model.addAttribute("menu", menu); 
 		menuService.addMenu(menu);
 		MenuService.context.close();
-
+		 
 		return "menu/addMenu/successAddMenu";
 	}
 	
@@ -89,10 +97,19 @@ public class CafeController {
 	}
 	
 	@PostMapping("/modifyMenu")
-	public String modifyMenu(String afterName, String name) {
-		menuService.modifyMenu(afterName, name);
+	public String modifyMenu(String afterName, int price, String name) {
+		menuService.modifyMenu(afterName, price, name);
 		
-		return "null";
+		return "modifyMenu/scModifyMenu";
+	}
+	
+	// 메뉴 목록 삭제
+	@PostMapping("deleteMenu")
+	public String deleteMenu(String name) {
+		
+		menuService.deleteMenu(name);
+		
+		return "modifyMenu/scDeleteMenu";
 	}
 	
 	// 결제화면
@@ -101,6 +118,8 @@ public class CafeController {
 
 		return "payment/successPayment";
 	}
+	
+//	----------- 카테고리 영역 ---------------
 	
 	// 카테고리 추가
 	@GetMapping("/auCategory")
@@ -196,8 +215,8 @@ public class CafeController {
 	
 	@PostMapping("/modifyCategory")
 	public String  modifyCategory(String afterName, String name) {
-		System.out.println(afterName);
-		System.out.println(name);
+		System.out.println(afterName);	// 바뀌고 난 후 카테고리명
+		System.out.println(name);	// 기존 카테고리명
 		categoryService.modifyCategory(afterName,  name);	
 		
 		return "modifyCategory/scModifyCategory";

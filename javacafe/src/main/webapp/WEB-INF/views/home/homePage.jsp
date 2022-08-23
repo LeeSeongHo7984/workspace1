@@ -56,7 +56,7 @@
     <p class="lead" style="text-align: center;font-weight: bold;font-size: 40px;">자바카페에 오신걸 환영합니다!!<br>오늘도 즐거운 하루 되세요</p>
     <p class="lead">
         <form action="homePage" method="post" style="width: 100%;">
-		<input type="button" value="카테고리 선택"  class="btn btn-lg btn-secondary" onClick="location.href='/javacafe/inquiryCategory'" style="margin-top: 150px; width: 600px;">
+		<input type="button" value="주문하기"  class="btn btn-lg btn-secondary" onClick="location.href='/javacafe/inquiryCategory'" style="margin-top: 150px; width: 600px;">
   	</form>
     </p>
   </main>
