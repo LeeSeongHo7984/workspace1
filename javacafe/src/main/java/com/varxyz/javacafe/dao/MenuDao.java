@@ -1,5 +1,6 @@
 package com.varxyz.javacafe.dao;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
