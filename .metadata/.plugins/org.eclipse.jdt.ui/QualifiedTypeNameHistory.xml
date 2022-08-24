@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.context.support.AnnotationConfigWebApplicationContext"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dto.SavingAccount"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mvc.dto.CheckingAccount"/>
     <fullyQualifiedTypeName name="com.varxyz.banking.mapper.SavingAccount"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.varxyz.javacafe.dto.Category"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.varxyz.ncs.calc.Calculator"/>
+    <fullyQualifiedTypeName name="org.springframework.core.annotation.Order"/>
 </qualifiedTypeNameHistroy>
