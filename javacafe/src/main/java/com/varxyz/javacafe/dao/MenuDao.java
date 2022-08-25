@@ -1,6 +1,6 @@
 package com.varxyz.javacafe.dao;
 
-import java.sql.SQLIntegrityConstraintViolationException;
+import java.io.File;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
@@ -19,10 +19,10 @@ public class MenuDao {
 	}
 	
 	// 메뉴 추가
-	public void addMenu(Menu menu) {
-		String sql = "INSERT INTO Menu (name, price, categoryName) VALUES (?, ?, ?)";
+	public void addMenu(Menu menu, String imgName) {
+		String sql = "INSERT INTO Menu (name, price, categoryName, imgName) VALUES (?, ?, ?, ?)";
 		
-		jdbcTemplate.update(sql,menu.getName(),  menu.getPrice(), menu.getCategoryName());
+		jdbcTemplate.update(sql, menu.getName(), menu.getPrice(),  menu.getCategoryName(), imgName);
 	}
 
 	// 메뉴 리스트
@@ -47,15 +47,17 @@ public class MenuDao {
 		}
 
 	// 메뉴 수정
-	public void modifyMenu(String afterName, int price, String name) {
-		String sql = "UPDATE Menu SET name = ?, price = ? WHERE name = ?";
+	public void modifyMenu(String afterName, String price, String name, String imgName) {
+		String sql = "UPDATE Menu SET name = ?, price = ?, imgName = ? WHERE name = ?";
 		
-		jdbcTemplate.update(sql, afterName, price, name);
+		jdbcTemplate.update(sql, afterName, price, name, imgName);
 	}
 
 	// 메뉴 삭제
-	public void deleteMenu(String name) {
+	public void deleteMenu(String name, String imgName) {
 		String sql = "DELETE FROM Menu WHERE name = ?";
+		File file = new File("C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img" + imgName + ".jpg");
+		file.delete();
 		
 		jdbcTemplate.update(sql, name);
 	}

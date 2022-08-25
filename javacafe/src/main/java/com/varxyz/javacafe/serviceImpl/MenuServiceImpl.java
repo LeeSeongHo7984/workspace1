@@ -9,8 +9,8 @@ public class MenuServiceImpl implements MenuService {
 	
 	// 메뉴 추가
 	@Override
-	public void addMenu(Menu menu) {
-		menuDao.addMenu(menu);
+	public void addMenu(Menu menu, String imgName) {
+		menuDao.addMenu(menu, imgName);
 	}
 	
 	// 메뉴 리스트
@@ -31,15 +31,15 @@ public class MenuServiceImpl implements MenuService {
 
 	// 메뉴 수정
 	@Override
-	public void modifyMenu(String afterName, int price, String name) {
-		menuDao.modifyMenu(afterName, price, name);
+	public void modifyMenu(String afterName, String price, String name, String imgName) {
+		menuDao.modifyMenu(afterName, price, name, imgName);
 		
 	}
 
 	// 메뉴 삭제
 	@Override
-	public void deleteMenu(String name) {
-		menuDao.deleteMenu(name);
+	public void deleteMenu(String name, String imgName) {
+		menuDao.deleteMenu(name, imgName);
 	}
 	
 }

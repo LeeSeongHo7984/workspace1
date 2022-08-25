@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString
 public class Menu {
 	private String name;
-	private int price;
+	private String price;
 	private String categoryName;
+	private String imgName;
 }

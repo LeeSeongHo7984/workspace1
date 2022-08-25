@@ -15,7 +15,7 @@ public interface MenuService {
 	MenuDao menuDao = context.getBean("menuDao", MenuDao.class);
 	
 	// 메뉴 추가
-	public void addMenu(Menu menu);
+	public void addMenu(Menu menu, String imgName);
 
 	// 메뉴 리스트
 	public List<Menu> findAllMenuListByCn(String categoryName);
@@ -27,10 +27,10 @@ public interface MenuService {
 	public List<Menu> selectMenuByCategory(String name);
 	
 	// 메뉴 수정
-	public void modifyMenu(String afterName, int price, String name);
+	public void modifyMenu(String afterName, String price, String name, String imgName);
 
 	// 메뉴 삭제
-	public void deleteMenu(String name);
+	public void deleteMenu(String name, String imgName);
 	
 	
 	

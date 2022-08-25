@@ -52,7 +52,7 @@
   
 	<form action="selectMenu" method="post" style="text-align: center; margin-top: 50px;">
 	<span style="font-size: 100px; font-weight: bold;">Menu</span><br>
-<select name="name" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
+	<select name="name" style=" margin-top: 130px; width: 500px; height: 50px; text-align: center; 
 					background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">--선택--</option>
 		<c:forEach var="menu" items="${menuList}">

@@ -70,8 +70,15 @@
 		<input type="text"  name="price" placeholder="바꾸실 가격을 입력하세요"
 			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br>
 		
-		<button class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 50px; width: 250px;">메뉴 수정</button>
+		<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 50px;">메뉴 사진</span><br>
+		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="imgName" style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br></div>
+				
+		<!-- 메뉴 사진 추가 -->
+		<!-- accept는 파일 선택시 jpg를 선택할 수 있게 함 -->
+		<input type="file" multiple="multiple" accept=".jpg, png" name="file" onchange="preview()" accept="image/jpeg, image/png, image/jpg" style="margin-left: 130px; padding-top: 10px; margin-bottom: 10px; margin-left: 860px;">
+		
+		<input type="submit" value="메뉴 수정" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 30px; width: 250px;"/>
 	</form>
 	<!-- 코드 끝 -->
 	
@@ -87,6 +94,7 @@
 		<option value="${menu.name}">${menu.name}</option>
 		</c:forEach>
 	</select><br>
+		
 		<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
 		margin-top: 50px; width: 250px;">메뉴 삭제</button>
 	</form>
@@ -100,4 +108,36 @@
   </p>
 </footer>
 </body>
+
+	<!-- 스크립트 영역 -->
+	<script type="text/javascript">
+	
+	<!-- 파일 추가 -->
+	// input 태그 (name이 file)를 가져옴 
+		let fileTag = document.querySelector("input[name=file]");
+		
+		// 파일태그에 변화가 있을 때 실행될 함수 작성 
+		fileTag.onchange = function () {
+			
+			let imgTag = document.querySelector("#profileImg");
+			
+			// 파일이 있는지 확인
+			if(fileTag.files.length > 0) {
+				// 파일을 선택한 경우 미리보기 생성 (이미지 태그 src에 데이터를 넣어주면 됨)
+				let reader = new FileReader();
+				
+				// reader 읽어들이는 작업(onload)를 끝냈을 때 함수 실행, 읽어온 데이터를 함수의 파라미터로 줄 수 있음
+				reader.onload = function (data) {
+					console.log(data);
+					imgTag.src = data.target.result;
+				}
+				
+				reader.readAsDataURL(fileTag.files[0]);
+			} else {
+				// 취소 버튼 누를 경우
+				imgTag.src = "";
+			}
+		}
+		
+	</script>
 </html>
