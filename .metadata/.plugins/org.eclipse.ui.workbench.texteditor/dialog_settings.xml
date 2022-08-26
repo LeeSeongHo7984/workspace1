@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="file"/>
+		<item key="selection" value=""/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
+			<item value="categoryName"/>
 			<item value="MultipartFile"/>
 			<item value="file"/>
 			<item value="piechart-section"/>
@@ -15,7 +16,6 @@
 			<item value="auCategory"/>
 			<item value="제출"/>
 			<item value="addCate"/>
-			<item value=" &lt;artifactId&gt;spring-data-commons&lt;/artifactId&gt;"/>
 		</list>
 		<list key="replacehistory">
 		</list>
