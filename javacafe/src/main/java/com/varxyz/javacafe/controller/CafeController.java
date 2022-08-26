@@ -137,7 +137,7 @@ public class CafeController {
 
 	@PostMapping("/selectMenu")
 	public String selectMenu(Menu name, HttpSession session, Model model) {
-		model.addAttribute("menuList", menuService.selectMenuByCategory(name.getName()));
+		model.addAttribute("menuList", menuService.selectMenuByMenu(name.getName()));
 		MenuService.context.close();
 
 		return "menu/select/successSelectMenu";
@@ -156,18 +156,25 @@ public class CafeController {
 		return "modifyMenu/modifyMenu";
 	}
 	
+//	public String modifyMenu 이게 헷갈리면 밑에 코드 보기
+//	public static void main(String[] args) {
+//		MenuService.main();
+//	}
+	
 	@PostMapping("/modifyMenu")
 	public String modifyMenu(@RequestParam("file") MultipartFile file, HttpServletRequest request, Model model) {
-		
-		Menu menu = new Menu();
 		
 		String fileRealName = file.getOriginalFilename(); // 파일명을 얻어낼 수 있는 메소드
 		long size = file.getSize(); // 파일 사이즈
 		
+		String name = (String)request.getParameter("name");
+		String afterName = (String)request.getParameter("afterName");
+		String price = (String)request.getParameter("price");
+		String imgName = menuService.selectMenuByMenu(name).get(0).getImgName();
 		// 사용자가 이미지를 업로드 하지 않았을 경우 예외 처리
 		if (fileRealName == null || fileRealName.length() == 0) {
-			menu.setImgName(request.getParameter("imgName"));
-			menuService.modifyMenu(menu, request.getParameter("imgName"));
+			
+			menuService.modifyMenu(name, afterName, price, imgName);
 			
 			model.addAttribute("msg", "수정이 완료되었습니다!!");
 			
@@ -179,7 +186,7 @@ public class CafeController {
 		System.out.println("파일크기 : " + size);
 		
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
-		String uploadFolder = "C:\\wgt\\Where-are-you-going-today\\wgt\\src\\main\\webapp\\resources\\user\\img"; 
+		String uploadFolder = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img"; 
 		
 		// 고유한 랜덤 문자생성 해서 db와 서버에 저장할 파일명을 새롭게 만들어 주는 코드
 		UUID uuid = UUID.randomUUID();
@@ -200,11 +207,7 @@ public class CafeController {
 			e.printStackTrace();
 		}
 		
-		menu.setName(request.getAttribute("name"));
-		menu.setPrice((String) request.getAttribute("price"));
-		menu.setCategoryName(request.getAttribute("categoryName"));
-		
-		menuService.modifyMenu(menu, uniqueName);
+		menuService.modifyMenu(name, afterName, price, uniqueName);
 		
 		return "modifyMenu/scModifyMenu";
 	}

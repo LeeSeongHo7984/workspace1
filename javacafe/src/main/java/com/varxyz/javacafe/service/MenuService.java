@@ -24,10 +24,10 @@ public interface MenuService {
 	public List<Menu> findAllMenuList();
 	
 	//메뉴 선택
-	public List<Menu> selectMenuByCategory(String name);
+	public List<Menu> selectMenuByMenu(String name);
 	
 	// 메뉴 수정
-	public void modifyMenu(Menu menu, String imgName);
+	public void modifyMenu(String name, String afterName, String price, String imgName);
 
 	// 메뉴 삭제
 	public void deleteMenu(String name, String imgName);

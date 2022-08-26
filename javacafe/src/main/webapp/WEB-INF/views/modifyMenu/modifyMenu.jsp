@@ -72,7 +72,7 @@
 		
 		<c:forEach var="menu" items="${menuList}">
 		<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 50px;">메뉴 사진</span><br>
-		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="imgName" 
+		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="file" 
 					 style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br></div>		
 		</c:forEach>		
 		<!-- 메뉴 사진 추가 -->
@@ -93,7 +93,7 @@
 			background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">-- 선택 --</option>
 		<c:forEach var="menu" items="${menuList}">
-		<option value="${menu.name}">${menu.name}</option>
+		<option value="${menu.name}">${menu.name} : ${menu.price}</option>
 		</c:forEach>
 	</select><br>
 		

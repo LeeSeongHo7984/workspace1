@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.varxyz.javacafe.dto.Category;
 import com.varxyz.javacafe.dto.Menu;
 
 @Repository("menuDao")
@@ -33,7 +34,7 @@ public class MenuDao {
 	}
 	
 	// 메뉴 이름 목록
-	public List<Menu> selectMenuByCategory(String name) {
+	public List<Menu> selectMenuByMenu(String name) {
 		String sql = "SELECT * FROM Menu WHERE name = ?";
 		
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Menu>(Menu.class), name);
@@ -47,10 +48,10 @@ public class MenuDao {
 		}
 
 	// 메뉴 수정
-	public void modifyMenu(Menu menu, String imgName) {
-		String sql = "UPDATE Menu SET name = ?, price = ?, categoryName = ?, imgName = ? WHERE name = ?";
+	public void modifyMenu(String name, String afterName, String price, String imgName) {
+		String sql = "UPDATE Menu SET name = ?, price = ?, imgName = ? WHERE name = ?";
 		
-		jdbcTemplate.update(sql, menu.getName(), menu.getPrice(), menu.getCategoryName(), imgName);
+		jdbcTemplate.update(sql, afterName, price, imgName, name);
 	}
 
 	// 메뉴 삭제

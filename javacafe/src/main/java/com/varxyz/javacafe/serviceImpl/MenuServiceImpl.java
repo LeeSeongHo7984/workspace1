@@ -25,14 +25,14 @@ public class MenuServiceImpl implements MenuService {
 	
 	// 메뉴 선택
 	@Override
-	public List<Menu> selectMenuByCategory(String name) {
-		return menuDao.selectMenuByCategory(name);
+	public List<Menu> selectMenuByMenu(String name) {
+		return menuDao.selectMenuByMenu(name);
 	}
 
 	// 메뉴 수정
 	@Override
-	public void modifyMenu(Menu menu, String imgName) {
-		menuDao.modifyMenu(menu, imgName);
+	public void modifyMenu(String name, String afterName, String price, String imgName) {
+		menuDao.modifyMenu(name, afterName, price, imgName);
 		
 	}
 
