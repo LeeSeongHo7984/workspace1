@@ -66,6 +66,13 @@ public class CafeController {
 		String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
 		long size = file.getSize(); //파일 사이즈
 		
+		if(fileRealName == null || fileRealName.length() == 0) {
+			
+			model.addAttribute("msg", "프로필 사진을 등록해 주세요!!");
+			
+			return "alert/back";
+		}
+		
 		System.out.println("파일명 : "  + fileRealName);
 		System.out.println("용량크기(byte) : " + size);
 		
@@ -142,15 +149,62 @@ public class CafeController {
 		
 		List<Menu> menuList = new ArrayList<Menu>();
 		
-		menuList= menuService.findAllMenuList();
+		menuList= menuService.findAllMenuList(); // 메뉴 리스트 안의 모든 값들을 불러온다
+		System.out.println(menuList);	
 		model.addAttribute("menuList", menuList);
 		
 		return "modifyMenu/modifyMenu";
 	}
 	
 	@PostMapping("/modifyMenu")
-	public String modifyMenu(@RequestParam("file") MultipartFile file, String afterName, String price, String name, String imgName) {
-		menuService.modifyMenu(afterName, price, name, imgName);
+	public String modifyMenu(@RequestParam("file") MultipartFile file, HttpServletRequest request, Model model) {
+		
+		Menu menu = new Menu();
+		
+		String fileRealName = file.getOriginalFilename(); // 파일명을 얻어낼 수 있는 메소드
+		long size = file.getSize(); // 파일 사이즈
+		
+		// 사용자가 이미지를 업로드 하지 않았을 경우 예외 처리
+		if (fileRealName == null || fileRealName.length() == 0) {
+			menu.setImgName(request.getParameter("imgName"));
+			menuService.modifyMenu(menu, request.getParameter("imgName"));
+			
+			model.addAttribute("msg", "수정이 완료되었습니다!!");
+			
+			return "user/modifyUser";
+			
+		}
+		
+		System.out.println("파일명 : " + fileRealName);
+		System.out.println("파일크기 : " + size);
+		
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String uploadFolder = "C:\\wgt\\Where-are-you-going-today\\wgt\\src\\main\\webapp\\resources\\user\\img"; 
+		
+		// 고유한 랜덤 문자생성 해서 db와 서버에 저장할 파일명을 새롭게 만들어 주는 코드
+		UUID uuid = UUID.randomUUID();
+		System.out.println(uuid.toString());
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		System.out.println("생성된 고유문자 : " + uniqueName);
+		System.out.println("확장자 : " + fileExtension);
+		
+		File saveFile = new File(uploadFolder + "\\" + uniqueName + fileExtension);
+		
+		try {
+			file.transferTo(saveFile);	// 실제 파일 저장메소드
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		menu.setName(request.getAttribute("name"));
+		menu.setPrice((String) request.getAttribute("price"));
+		menu.setCategoryName(request.getAttribute("categoryName"));
+		
+		menuService.modifyMenu(menu, uniqueName);
 		
 		return "modifyMenu/scModifyMenu";
 	}

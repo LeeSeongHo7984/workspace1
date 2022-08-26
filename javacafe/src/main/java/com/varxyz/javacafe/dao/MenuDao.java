@@ -47,10 +47,10 @@ public class MenuDao {
 		}
 
 	// 메뉴 수정
-	public void modifyMenu(String afterName, String price, String name, String imgName) {
-		String sql = "UPDATE Menu SET name = ?, price = ?, imgName = ? WHERE name = ?";
+	public void modifyMenu(Menu menu, String imgName) {
+		String sql = "UPDATE Menu SET name = ?, price = ?, categoryName = ?, imgName = ? WHERE name = ?";
 		
-		jdbcTemplate.update(sql, afterName, price, name, imgName);
+		jdbcTemplate.update(sql, menu.getName(), menu.getPrice(), menu.getCategoryName(), imgName);
 	}
 
 	// 메뉴 삭제

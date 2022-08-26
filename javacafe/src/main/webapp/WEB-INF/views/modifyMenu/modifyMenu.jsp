@@ -55,7 +55,7 @@
 	</div>
 	
 	<!-- 메뉴수정 코드시작 -->
-	<form action="modifyMenu" method="post">
+	<form action="modifyMenu" method="post" enctype="multipart/form-data">
 	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 					background-color: black; color: white; font-weight: bold; font-size: 15px;">
 		<option value="unknown">-- 선택 --</option>
@@ -70,9 +70,11 @@
 		<input type="text"  name="price" placeholder="바꾸실 가격을 입력하세요"
 			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br>
 		
+		<c:forEach var="menu" items="${menuList}">
 		<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 50px;">메뉴 사진</span><br>
-		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="imgName" style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br></div>
-				
+		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="imgName" 
+					 style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br></div>		
+		</c:forEach>		
 		<!-- 메뉴 사진 추가 -->
 		<!-- accept는 파일 선택시 jpg를 선택할 수 있게 함 -->
 		<input type="file" multiple="multiple" accept=".jpg, png" name="file" onchange="preview()" accept="image/jpeg, image/png, image/jpg" style="margin-left: 130px; padding-top: 10px; margin-bottom: 10px; margin-left: 860px;">

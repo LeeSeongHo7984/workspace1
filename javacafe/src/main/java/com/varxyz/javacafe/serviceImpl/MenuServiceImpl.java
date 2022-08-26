@@ -31,8 +31,8 @@ public class MenuServiceImpl implements MenuService {
 
 	// 메뉴 수정
 	@Override
-	public void modifyMenu(String afterName, String price, String name, String imgName) {
-		menuDao.modifyMenu(afterName, price, name, imgName);
+	public void modifyMenu(Menu menu, String imgName) {
+		menuDao.modifyMenu(menu, imgName);
 		
 	}
 

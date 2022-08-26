@@ -68,10 +68,10 @@
 		<label>추가하실 메뉴의 가격을 입력하세요</label><br>
 		<input type="text"  name="price" style="margin-top: 20px; height: 50px; width: 300px; margin-bottom: 20px; text-align: center;"><br>
 		
-		<!-- 메뉴 사진 추가 -->
 		<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 20px;">메뉴 사진</span><br>
-		<img id="profileImg" style="width: 300px; height: 300px; margin-top: 15px;"></div>
+		<img id="profileImg" name="imgName" style="width: 300px; height: 300px; margin-top: 15px;"></div>
 		
+		<!-- 메뉴 사진 추가 -->
 		<!-- accept는 파일 선택시 jpg를 선택할 수 있게 함 -->
 		<input type="file" multiple="multiple" accept=".jpg, png" name="file" onchange="preview()" accept="image/jpeg, image/png, image/jpg" style="margin-left: 130px; padding-top: 10px; margin-bottom: 10px;">
 		

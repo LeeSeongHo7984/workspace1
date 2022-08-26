@@ -27,11 +27,9 @@ public interface MenuService {
 	public List<Menu> selectMenuByCategory(String name);
 	
 	// 메뉴 수정
-	public void modifyMenu(String afterName, String price, String name, String imgName);
+	public void modifyMenu(Menu menu, String imgName);
 
 	// 메뉴 삭제
 	public void deleteMenu(String name, String imgName);
-	
-	
 	
 }
