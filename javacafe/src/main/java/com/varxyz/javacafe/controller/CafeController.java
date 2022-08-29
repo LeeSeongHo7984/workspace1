@@ -171,6 +171,8 @@ public class CafeController {
 		String afterName = (String)request.getParameter("afterName");
 		String price = (String)request.getParameter("price");
 		String imgName = menuService.selectMenuByMenu(name).get(0).getImgName();
+		System.out.println(menuService.selectMenuByMenu(name));
+		
 		// 사용자가 이미지를 업로드 하지 않았을 경우 예외 처리
 		if (fileRealName == null || fileRealName.length() == 0) {
 			

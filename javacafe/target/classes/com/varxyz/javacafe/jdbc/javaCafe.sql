@@ -15,8 +15,6 @@ SELECT * FROM Menu
 
 CREATE TABLE Category(
 	name	VARCHAR(20)		PRIMARY KEY
---		CONSTRAINT Category_name_FK
---		FOREIGN KEY(name) REFERENCES Menu(categoryName)
 )
 
 SELECT * FROM Category
