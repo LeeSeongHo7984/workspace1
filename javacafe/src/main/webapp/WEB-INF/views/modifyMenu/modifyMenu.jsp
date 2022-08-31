@@ -73,7 +73,7 @@
 		<c:forEach var="menu" items="${menuList}">
 		<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 50px;">메뉴 사진</span><br>
 		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="file" 
-					 style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br></div>		
+					 style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;"/><br></div>		
 		</c:forEach>		
 		<!-- 메뉴 사진 추가 -->
 		<!-- accept는 파일 선택시 jpg를 선택할 수 있게 함 -->
