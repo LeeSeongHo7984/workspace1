@@ -10836,6 +10836,7 @@ Unexpected character (<) at position 0.
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:02:42.862
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
@@ -10843,6 +10844,9 @@ Unexpected character (<) at position 0.
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.jdt.core 4 0 2022-08-31 17:02:43.446
+=======
+!ENTRY org.eclipse.jdt.core 4 0 2022-08-31 16:53:15.192
+>>>>>>> main
 =======
 !ENTRY org.eclipse.jdt.core 4 0 2022-08-31 16:53:15.192
 >>>>>>> main
@@ -10861,6 +10865,7 @@ java.io.UTFDataFormatException
 	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:422)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:02:50.829
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
@@ -10900,6 +10905,8 @@ java.io.UTFDataFormatException
 
 !ENTRY org.eclipse.jdt.core 4 0 2022-08-31 17:04:19.216
 =======
+=======
+>>>>>>> main
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 16:53:16.266
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
@@ -10907,6 +10914,9 @@ java.io.UTFDataFormatException
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.jdt.core 4 0 2022-08-31 16:53:20.214
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
 !MESSAGE Failed to update qualified index.
 !STACK 0
@@ -10924,6 +10934,7 @@ java.io.UTFDataFormatException
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:04:36.931
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
@@ -10935,6 +10946,8 @@ java.io.UTFDataFormatException
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:04:42.966
 =======
+=======
+>>>>>>> main
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 16:53:20.354
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
@@ -11003,6 +11016,7 @@ java.io.UTFDataFormatException
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:04:09.675
+<<<<<<< HEAD
 >>>>>>> main
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
@@ -11025,6 +11039,11 @@ java.io.UTFDataFormatException
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.jdt.core 4 0 2022-08-31 17:11:26.950
+=======
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.core 4 0 2022-08-31 17:17:11.649
+>>>>>>> main
 !MESSAGE Failed to update qualified index.
 !STACK 0
 java.io.UTFDataFormatException
@@ -11040,6 +11059,7 @@ java.io.UTFDataFormatException
 	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:422)
 	at java.base/java.lang.Thread.run(Thread.java:829)
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.jdt.core 4 0 2022-08-31 17:17:51.789
 !MESSAGE Failed to update qualified index.
 !STACK 0
@@ -11083,3 +11103,16 @@ java.io.UTFDataFormatException
 	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.notifyIdle(IndexManager.java:819)
 	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:422)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+=======
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:17:11.880
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:17:11.882
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:17:16.859
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-08-31 17:17:16.861
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+>>>>>>> main
