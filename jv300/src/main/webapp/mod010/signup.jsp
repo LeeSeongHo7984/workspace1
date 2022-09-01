@@ -18,7 +18,7 @@
 	
 	#content-wrapper {
 		text-align: center;
-		margin: 400px 100px;
+		margin: 100px 100px;
 	}
 	
 	#footer {
@@ -33,11 +33,13 @@
 </style>
 <body id="wrapper">
    <div>
+   <!--  
    		<div id="header">
    			<jsp:include page="/incl/banner.jsp">
    	            <jsp:param name="subtitle" value='<%=URLEncoder.encode(\"Signup : Java Beans and include<br>회원가입\",\"UTF-8\") %>'/>
    			</jsp:include>
    		</div>
+   		-->
    		<div id="content-wrapper">
    			<h3>회원가입</h3>
    			 <form action="sign_up.do" method="post">

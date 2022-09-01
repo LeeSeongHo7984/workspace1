@@ -37,6 +37,8 @@ public class FindServlet extends HttpServlet {
            
       // NextPage
       dispatcher = request.getRequestDispatcher("find.jsp");
+      System.out.println(1);
       dispatcher.forward(request, response);
+      System.out.println(2);
    }
 }

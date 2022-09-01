@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+body {
+	background-color: skyblue;
+	color: white;
+	text-align: center;
+}
+
+h3 {
+	font-size: 50px;
+	margin: 100px;
+}
+
+div {
+	font-size: 20px;
+	margin: 10px;
+	text-align: center;
+}

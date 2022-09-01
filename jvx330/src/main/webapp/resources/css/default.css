@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+body {
+	background: skyblue;
+	font-size : 15px;
+	color: white;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

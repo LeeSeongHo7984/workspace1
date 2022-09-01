@@ -1,9 +1,7 @@
-
 package com.varxyz.jv300.mod009;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -41,7 +39,7 @@ public class ListCourseContentsServlet extends HttpServlet {
                }
             }
          }
-      }else {
+      } else {
          String[] str = new String[] {"-No Data-"};
          ArrayList<String[]> list = new ArrayList<>();
          list.add(str);

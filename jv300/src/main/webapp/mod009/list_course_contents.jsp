@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!--  var은 변수, items는 객체 --> 
-   <c:forEach var="content" items="${contentList}">
-      <c:forEach var="list" items="${content}">
-         ${list}
+   <c:forEach var="contentList" items="${contentList}">
+      <c:forEach var="contentList" items="${contentList}">
+         ${contentList}
       </c:forEach>
       <br>
    </c:forEach>
