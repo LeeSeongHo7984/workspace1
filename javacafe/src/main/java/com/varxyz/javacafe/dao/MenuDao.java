@@ -51,7 +51,9 @@ public class MenuDao {
 	public void modifyMenu(String name, String afterName, String price, String imgName) {
 		String sql = "UPDATE Menu SET name = ?, price = ?, imgName = ? WHERE name = ?";
 		
+		System.out.println(7);
 		jdbcTemplate.update(sql, afterName, price, imgName, name);
+		System.out.println(6);
 	}
 
 	// 메뉴 삭제

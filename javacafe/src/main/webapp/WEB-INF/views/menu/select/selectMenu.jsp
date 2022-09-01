@@ -61,7 +61,7 @@
 		<option value="${menu.name}">${menu.name} : ${menu.price}</option>	
 		</c:forEach>
 	</select><br>
-	<input type="submit" value="확인" class="btn btn-lg btn-secondary" style="margin-top: 150px; width: 400px;" />
+	<input type="submit" name="name" value="확인" class="btn btn-lg btn-secondary" style="margin-top: 150px; width: 400px;" />
 	</form>
 	
 	  <!-- FOOTER -->

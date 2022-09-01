@@ -56,49 +56,32 @@
 	
 	<!-- 메뉴수정 코드시작 -->
 	<form action="modifyMenu" method="post" enctype="multipart/form-data">
-	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
+		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 					background-color: black; color: white; font-weight: bold; font-size: 15px;">
-		<option value="unknown">-- 선택 --</option>
-		<c:forEach var="menu" items="${menuList}">
-		<option value="${menu.name}">${menu.name} : ${menu.price}</option>
-		</c:forEach>
-	</select><br>
+			<c:forEach var="menu" items="${menuList}">
+			<option value="${menu.name}">${menu.name} : ${menu.price}</option>
+			<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="file" 
+						 style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br>
+			</c:forEach>  
+		</select> 
 	
-		<input type="text"  name="afterName" placeholder="바꾸실 메뉴명을 입력하세요"
+ 		<input type="text"  name="afterName" placeholder="바꾸실 메뉴명을 입력하세요"
 			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br>
 		
 		<input type="text"  name="price" placeholder="바꾸실 가격을 입력하세요"
-			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br>
+			style="text-align: center; margin: 0 auto; display: block; width: 600px; height: 70px; margin-top: 50px; font-size: 30px;" /><br> 
 		
 		<c:forEach var="menu" items="${menuList}">
 		<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 50px;">메뉴 사진</span><br>
 		<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="file" 
 					 style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;"/><br></div>		
-		</c:forEach>		
+		 </c:forEach> 	
 		<!-- 메뉴 사진 추가 -->
 		<!-- accept는 파일 선택시 jpg를 선택할 수 있게 함 -->
 		<input type="file" multiple="multiple" accept=".jpg, png" name="file" onchange="preview()" accept="image/jpeg, image/png, image/jpg" style="margin-left: 130px; padding-top: 10px; margin-bottom: 10px; margin-left: 860px;">
 		
-		<input type="submit" value="메뉴 수정" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 30px; width: 250px;"/>
-	</form>
-	<!-- 코드 끝 -->
-	
-	<!-- 메뉴삭제 코드시작 -->
-	<div style="font-size: 50px; margin-top: 50px; text-align: center; font-weight: bold; border-top: 1px solid #e5e5e5;">
-		<div style="margin-top: 50px;">삭제할 메뉴 선택</div>
-	</div>
-	<form action="deleteMenu" method="post">
-		<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
-			background-color: black; color: white; font-weight: bold; font-size: 15px;">
-		<option value="unknown">-- 선택 --</option>
-		<c:forEach var="menu" items="${menuList}">
-		<option value="${menu.name}">${menu.name} : ${menu.price}</option>
-		</c:forEach>
-	</select><br>
-		
-		<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
-		margin-top: 50px; width: 250px;">메뉴 삭제</button>
+		<input type="submit" name="name" value="메뉴 수정" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		margin-top: 30px; width: 250px; color: white;'" />
 	</form>
 	<!-- 코드 끝 -->
 

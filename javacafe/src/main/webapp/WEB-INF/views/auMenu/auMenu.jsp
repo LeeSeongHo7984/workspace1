@@ -57,7 +57,7 @@
 		<button type="button" value="추가" onClick="location.href='/javacafe/addMenu'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
 		margin-top: 100px; width: 250px;">추가</button>
 		
-		<button type="button" value="수정" onClick="location.href='/javacafe/modifyMenu'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
+		<button type="button" value="수정" onClick="location.href='/javacafe/selectModifyMenu'" class="btn btn-lg btn-secondary" style="margin: 0 auto; text-align: center; display: block;
 		margin-top: 100px; width: 250px;">수정</button>
 
 

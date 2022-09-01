@@ -54,7 +54,7 @@
 		<span>수정할 메뉴 선택</span>
 	</div>
 	
-	<!-- 메뉴수정 코드시작 -->
+	<!-- 메뉴선택하고 수정화면 넘어가는 코드시작 -->
 	<form action="selectModifyMenu" method="post" enctype="multipart/form-data">
 	<select name="name" class="btn btn-lg btn-secondary" style=" margin-top: 50px; width: 500px; height: 50px; text-align: center; 
 					background-color: black; color: white; font-weight: bold; font-size: 15px;">

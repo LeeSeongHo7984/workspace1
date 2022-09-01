@@ -36,216 +36,6 @@ public class CafeController {
 	public String homePageForm() {
 		return "home/homePage";
 	}
-
-//	----------- 메뉴 영역 ---------------
-	
-	// 메뉴 추가 및 수정화면
-	@GetMapping("/auMenu")
-	public String auMenuFrom() {
-		
-		return "auMenu/auMenu";
-	}
-	
-	// 메뉴 추가
-	@GetMapping("/addMenu")
-	public String addMenuForm(Model model) {
-		List<Category> categoryList = new ArrayList<Category>();
-		categoryList = categoryService.findAllCaList(); // 디비에서 불러와야됨
-
-		model.addAttribute("category", new Category());
-		model.addAttribute("categoryList", categoryList);
-
-		return "menu/addMenu/addMenu";
-	}
-
-	@PostMapping("/addMenu")
-	public String addMenu(@RequestParam("file") MultipartFile file, 
-								HttpServletRequest request, String imgName, Model model) {
-		
-		// 파일추가
-		String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
-		long size = file.getSize(); //파일 사이즈
-		
-		if(fileRealName == null || fileRealName.length() == 0) {
-			
-			model.addAttribute("msg", "프로필 사진을 등록해 주세요!!");
-			
-			return "alert/back";
-		}
-		
-		System.out.println("파일명 : "  + fileRealName);
-		System.out.println("용량크기(byte) : " + size);
-		
-		//서버에 저장할 파일이름 fileextension으로 .jsp이런식의  확장자 명을 구함
-		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img";
-		
-		/*
-		  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
-		  업로드 하는 파일명이 언어 이외의 언어로 되어있을 수 있습니다. 
-		  타인어를 지원하지 않는 환경에서는 정산 동작이 되지 않습니다.(리눅스가 대표적인 예시)
-		  고유한 랜던 문자를 통해 db와 서버에 저장할 파일명을 새롭게 만들어 준다.
-		 */
-		
-		UUID uuid = UUID.randomUUID();
-		System.out.println(uuid.toString());
-		String[] uuids = uuid.toString().split("-");
-		
-		String uniqueName = uuids[0];
-		System.out.println("생성된 고유문자열" + uniqueName);
-		System.out.println("확장자명" + fileExtension);
-		
-		// File saveFile = new File(uploadFolder+"\\"+fileRealName); uuid 적용 전
-		
-		File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
-		try {
-			file.transferTo(saveFile); // 실제 파일 저장메서드(filewriter 작업을 손쉽게 한방에 처리해준다.)
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		Category category = new Category();
-		Menu menu = new Menu();
-		
-		if(request.getParameter("categoryName").equals("unknown")) {
-			System.out.println(category.getName());
-			
-			model.addAttribute("msg", "카테고리를 선택해 주세요");
-			
-			return "errorMsg";
-		}
-		
-		menu.setName(request.getParameter("name"));
-		menu.setPrice(request.getParameter("price"));
-		menu.setCategoryName(request.getParameter("categoryName"));
-		menu.setImgName(request.getParameter("imgName"));
-		
-		menuService.addMenu(menu, uniqueName);
-		MenuService.context.close();
-		 
-		return "menu/addMenu/successAddMenu";
-	}
-	
-	// 메뉴 목록 조회
-	@GetMapping("/selectMenu")
-	public String selectMenuForm(HttpSession session, Model model) {
-
-		return "menu/select/selectMenu";
-	}
-
-	@PostMapping("/selectMenu")
-	public String selectMenu(Menu name, HttpSession session, Model model) {
-		model.addAttribute("menuList", menuService.selectMenuByMenu(name.getName()));
-		MenuService.context.close();
-
-		return "menu/select/successSelectMenu";
-	}
-
-	// 메뉴 목록 수정
-	@GetMapping("/modifyMenu") 
-	public String modifyMenuFrom(MultipartFile file, String name, Model model) {
-		
-		List<Menu> menuList = new ArrayList<Menu>();
-		
-		menuList= menuService.findAllMenuList(); // 메뉴 리스트 안의 모든 값들을 불러온다
-		System.out.println(menuList);	
-		model.addAttribute("menuList", menuList);
-		
-		return "modifyMenu/modifyMenu";
-	}
-	
-//	public String modifyMenu 이게 헷갈리면 밑에 코드 보기
-//	public static void main(String[] args) {
-//		MenuService.main();
-//	}
-	
-	@PostMapping("/modifyMenu")
-	public String modifyMenu(@RequestParam("file") MultipartFile file, HttpServletRequest request, Model model) {
-		
-		String fileRealName = file.getOriginalFilename(); // 파일명을 얻어낼 수 있는 메소드
-		long size = file.getSize(); // 파일 사이즈
-		
-		String name = (String)request.getParameter("name");
-		String afterName = (String)request.getParameter("afterName");
-		String price = (String)request.getParameter("price");
-		String imgName = menuService.selectMenuByMenu(name).get(0).getImgName();
-		System.out.println(menuService.selectMenuByMenu(name));
-		
-		// 사용자가 이미지를 업로드 하지 않았을 경우 예외 처리
-		if (fileRealName == null || fileRealName.length() == 0) {
-			
-			menuService.modifyMenu(name, afterName, price, imgName);
-			
-			model.addAttribute("msg", "수정이 완료되었습니다!!");
-			
-			return "user/modifyUser";
-			
-		}
-		
-		System.out.println("파일명 : " + fileRealName);
-		System.out.println("파일크기 : " + size);
-		
-		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
-		String uploadFolder = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img"; 
-		
-		// 고유한 랜덤 문자생성 해서 db와 서버에 저장할 파일명을 새롭게 만들어 주는 코드
-		UUID uuid = UUID.randomUUID();
-		System.out.println(uuid.toString());
-		String[] uuids = uuid.toString().split("-");
-		
-		String uniqueName = uuids[0];
-		System.out.println("생성된 고유문자 : " + uniqueName);
-		System.out.println("확장자 : " + fileExtension);
-		
-		File saveFile = new File(uploadFolder + "\\" + uniqueName + fileExtension);
-		
-		try {
-			file.transferTo(saveFile);	// 실제 파일 저장메소드
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		menuService.modifyMenu(name, afterName, price, uniqueName);
-		
-		return "modifyMenu/scModifyMenu";
-	}
-	
-	// 메뉴 목록 삭제
-	@PostMapping("deleteMenu")
-	public String deleteMenu(String imgName, HttpServletRequest request, HttpSession session, String name) {
-		
-		String dbImgName = request.getParameter("imgName");
-		System.out.println(dbImgName);
-		
-		String filePath = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img" + dbImgName + ".jpg";
-		
-		File deleteFile = new File(filePath);
-		System.out.println(deleteFile);
-		// 파일 존재 여부 확인
-		if(deleteFile.exists()) {
-			// 있으면 삭제
-			session.removeAttribute(dbImgName);
-			deleteFile.delete();
-			System.out.println("파일 삭제 완료");
-		} else {
-			System.out.println("파일이 존재하지 않습니다.");
-		}
-		
-		menuService.deleteMenu(name, dbImgName);
-		
-		return "modifyMenu/scDeleteMenu";
-	}
-	
-	// 결제화면
-	@GetMapping("/successPayment")
-	public String PaymentForm(HttpSession session, Model model) {
-
-		return "payment/successPayment";
-	}
 	
 //	----------- 카테고리 영역 ---------------
 	
@@ -285,7 +75,7 @@ public class CafeController {
 
 		return "category/add/successCategory"; // jsp 경로
 
-}
+	}
 
 	// 카테고리 목록 조회
 	@GetMapping("/inquiryCategory")
@@ -357,5 +147,256 @@ public class CafeController {
 		
 		return "modifyCategory/scDeleteCategory";
 	}
+
+//	----------- 메뉴 영역 ---------------
+	
+	// 메뉴 추가 및 수정화면
+	@GetMapping("/auMenu")
+	public String auMenuFrom() {
+		
+		return "auMenu/auMenu";
+	}
+	
+	// 메뉴 추가
+	@GetMapping("/addMenu")
+	public String addMenuForm(Model model) {
+		List<Category> categoryList = new ArrayList<Category>();
+		categoryList = categoryService.findAllCaList(); // 디비에서 불러와야됨
+
+		model.addAttribute("category", new Category());
+		model.addAttribute("categoryList", categoryList);
+
+		return "menu/addMenu/addMenu";
+	}
+
+	@PostMapping("/addMenu")
+	public String addMenu(@RequestParam("file") MultipartFile file, 
+								HttpServletRequest request, String imgName, Model model) {
+		
+		// 파일추가
+		String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
+		long size = file.getSize(); //파일 사이즈
+		
+		if(fileRealName == null || fileRealName.length() == 0) {
+			
+			model.addAttribute("msg", "프로필 사진을 등록해 주세요!!");
+			
+			return "alert/back";
+		}
+		
+		System.out.println("파일명 : "  + fileRealName);
+		System.out.println("용량크기(byte) : " + size);
+		
+		//서버에 저장할 파일이름 fileextension으로 .jsp이런식의  확장자 명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img";
+		
+		/*
+		  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
+		  업로드 하는 파일명이 언어 이외의 언어로 되어있을 수 있습니다. 
+		  타인어를 지원하지 않는 환경에서는 정산 동작이 되지 않습니다.(리눅스가 대표적인 예시)
+		  고유한 랜던 문자를 통해 db와 서버에 저장할 파일명을 새롭게 만들어 준다.
+		 */
+		
+		UUID uuid = UUID.randomUUID();
+		System.out.println(uuid.toString());
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		System.out.println("생성된 고유문자열" + uniqueName);
+		System.out.println("확장자명" + fileExtension);
+		
+//		File saveFile = new File(uploadFolder+"\\"+fileRealName); uuid 적용 전
+		
+		File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
+		
+		try {
+			file.transferTo(saveFile); // 실제 파일 저장메서드(filewriter 작업을 손쉽게 한방에 처리해준다.)
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Category category = new Category();
+		Menu menu = new Menu();
+		
+		if(request.getParameter("categoryName").equals("unknown")) {
+			System.out.println(category.getName());
+			
+			model.addAttribute("msg", "카테고리를 선택해 주세요");
+			
+			return "errorMsg";
+		}
+		
+		menu.setName(request.getParameter("name"));
+		menu.setPrice(request.getParameter("price"));
+		menu.setCategoryName(request.getParameter("categoryName"));
+		menu.setImgName(request.getParameter("imgName"));
+		
+		menuService.addMenu(menu, uniqueName);
+		MenuService.context.close();
+		 
+		return "menu/addMenu/successAddMenu";
+	}
+	
+	// 메뉴 목록 조회
+	@GetMapping("/selectMenu")
+	public String selectMenuForm(String name, HttpSession session, Model model) {
+
+		return "menu/select/selectMenu";
+	}
+
+	@PostMapping("/selectMenu")
+	public String selectMenu(Menu name, HttpSession session, Model model) {
+		model.addAttribute("menuList", menuService.selectMenuByMenu(name.getName()));
+		MenuService.context.close();
+
+		return "menu/select/successSelectMenu";
+	}
+
+	// 메뉴 목록 수정 전 선택
+	@GetMapping("/selectModifyMenu")
+	public String selectModifyMenuForm(Model model) {
+		
+		List<Menu> menuList = new ArrayList<Menu>();
+		menuList = menuService.findAllMenuList();	// 메뉴리스트에 메뉴안에 있는 값들을 넣어주고
+		
+		model.addAttribute("menuList", menuList);	// 모델로 추가해서 jsp에서 name값으로 가져온다
+		System.out.println(7);
+		
+		return "/modifyMenu/selectModifyMenu";
+	}
+	
+	@PostMapping("/selectModifyMenu")
+	public String selectModifyMenu(String name, HttpServletRequest request, Model model) {
+		
+		List<Menu> menuList = new ArrayList<Menu>();
+		menuList = menuService.selectMenuByMenu(name);
+		System.out.println("메뉴를 선택하고 수정화면 보냈을때 값" + menuList);
+		
+		model.addAttribute("menuList", menuList);
+		
+		return "/modifyMenu/modifyMenu";
+	}
+	
+	// 메뉴 목록 수정
+	@GetMapping("/modifyMenu") 
+	public String modifyMenuFrom(MultipartFile file, String name, Model model) {
+		
+		List<Menu> menuList = new ArrayList<Menu>();
+		
+		menuList= menuService.findAllMenuList(); // 메뉴 리스트 안의 모든 값들을 불러온다
+		System.out.println("기존 값들" + menuList);	
+		model.addAttribute("menuList", menuList);
+		
+		return "modifyMenu/modifyMenu";
+	}
+	
+//	public String modifyMenu 이게 헷갈리면 밑에 코드 보기
+//	public static void main(String[] args) {
+//		MenuService.main();
+//	}
+	
+	@PostMapping("/modifyMenu")
+	public String modifyMenu(@RequestParam("file") MultipartFile file, HttpServletRequest request, Model model) {
+		
+		String fileRealName = file.getOriginalFilename(); // 파일명을 얻어낼 수 있는 메소드
+		long size = file.getSize(); // 파일 사이즈
+		
+		if(fileRealName == null || fileRealName.length() == 0) {
+			
+			model.addAttribute("msg", "프로필 사진을 등록해 주세요!!");
+			
+			return "alert/back";
+		}
+
+		String name = (String)request.getParameter("name");
+		String afterName = (String)request.getParameter("afterName");
+		String price = (String)request.getParameter("price");
+		String imgName = (String)request.getParameter("imgName");
+		
+		// 사용자가 이미지를 업로드 하지 않았을 경우 예외 처리
+		if(fileRealName == null || fileRealName.length() == 0) {
+			
+			model.addAttribute("msg", "프로필 사진을 등록해 주세요!!");
+			
+			return "alert/back";
+		}
+		
+		System.out.println("파일명 : " + fileRealName);
+		System.out.println("파일크기 : " + size);
+		
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String uploadFolder = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img"; 
+		
+		// 고유한 랜덤 문자생성 해서 db와 서버에 저장할 파일명을 새롭게 만들어 주는 코드
+		UUID uuid = UUID.randomUUID();
+		System.out.println(uuid.toString());
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		System.out.println("생성된 고유문자 : " + uniqueName);
+		System.out.println("확장자 : " + fileExtension);
+		
+		File saveFile = new File(uploadFolder + "\\" + uniqueName + fileExtension);
+		
+		try {
+			file.transferTo(saveFile);	// 실제 파일 저장메소드
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		menuService.modifyMenu(name, afterName, price, uniqueName);
+		
+		System.out.println("기존 이름 :" + name);
+		System.out.println("바꾼 이름 : " + afterName);
+		System.out.println("바꾼 가격 : " + price);
+		System.out.println("바꾼 이미지 고유번호 : " + uniqueName);
+		
+		return "modifyMenu/scModifyMenu";
+	}
+	
+	// 메뉴 목록 삭제
+	@PostMapping("deleteMenu")
+	public String deleteMenu(String imgName, HttpServletRequest request, HttpSession session, String name) {
+		
+		String dbImgName = request.getParameter("imgName");
+		System.out.println(dbImgName);
+		
+		String filePath = "C:\\LSH\\workspace\\javacafe\\src\\main\\webapp\\resources\\img" + dbImgName + ".jpg";
+		
+		File deleteFile = new File(filePath);
+		System.out.println(deleteFile);
+		// 파일 존재 여부 확인
+		if(deleteFile.exists()) {
+			// 있으면 삭제
+			session.removeAttribute(dbImgName);
+			deleteFile.delete();
+			System.out.println("파일 삭제 완료");
+		} else {
+			System.out.println("파일이 존재하지 않습니다.");
+		}
+		
+		menuService.deleteMenu(name, dbImgName);
+		
+		return "modifyMenu/scDeleteMenu";
+	}
+	
+	// 결제화면
+	@GetMapping("/successPayment")
+	public String PaymentForm(String name, HttpSession session, Model model) {
+		
+		List<Menu> menuList = new ArrayList<Menu>();
+		menuList = menuService.selectMenuByMenu(name);
+		
+		model.addAttribute("menuList", menuList);
+		System.out.println("결제" + menuList);
+
+		return "payment/successPayment";
+	}
+	
 
 }

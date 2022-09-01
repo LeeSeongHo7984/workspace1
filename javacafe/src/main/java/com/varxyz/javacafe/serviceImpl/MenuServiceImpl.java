@@ -33,7 +33,7 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public void modifyMenu(String name, String afterName, String price, String imgName) {
 		menuDao.modifyMenu(name, afterName, price, imgName);
-		
+		System.out.println(5);
 	}
 
 	// 메뉴 삭제
