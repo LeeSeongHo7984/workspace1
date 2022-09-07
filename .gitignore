@@ -74,3 +74,4 @@ javacafe/target/classes/com/varxyz/javacafe/controller/CafeController.class
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
 *.MF
 .metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location
+.metadata/.log
