@@ -854,3 +854,9 @@ java.lang.IllegalStateException: Preference node "org.eclipse.wst.validation" ha
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-07 17:18:33.439
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-07 17:18:50.502
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-07 17:18:50.504
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
