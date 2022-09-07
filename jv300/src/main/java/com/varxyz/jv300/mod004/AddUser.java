@@ -41,8 +41,7 @@ public class AddUser extends HttpServlet {
 		out.println("</p>");
 		out.println("</body></html>");
 		out.close(); 
-	
-	
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

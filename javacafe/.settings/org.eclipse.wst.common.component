@@ -1,93 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-<<<<<<< HEAD
-                    	
-    
-=======
-                	
->>>>>>> main
-    
-    
-    
+        
     <wb-module deploy-name="javacafe-1.0.0-BUILD-SNAPSHOT">
-<<<<<<< HEAD
-                                                
-        
-=======
-                                        
->>>>>>> main
-        
-        
-        
-        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-<<<<<<< HEAD
-                                        		
-        
-=======
-                                		
->>>>>>> main
-        
-        
-        
-        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-<<<<<<< HEAD
-                                        		
-        
-=======
-                                		
->>>>>>> main
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-<<<<<<< HEAD
-                                        		
-        
-=======
-                                		
->>>>>>> main
-        
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-                                        		
-        
-=======
-                                		
->>>>>>> main
-        
-        
-        
-        <property name="java-output-path" value="target/classes"/>
-<<<<<<< HEAD
-                                                
-        
-=======
-                                        
->>>>>>> main
-        
-        
-        
-        <property name="context-root" value="javacafe"/>
-<<<<<<< HEAD
-                                        	
-    
-=======
-                                	
->>>>>>> main
-    
-    
-    
-    </wb-module>
-<<<<<<< HEAD
-                    
-
-=======
                 
->>>>>>> main
-
-
-
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+                
+        <property name="context-root" value="javacafe"/>
+                
+        <property name="java-output-path" value="/javacafe/target/classes"/>
+            
+    </wb-module>
+    
 </project-modules>
