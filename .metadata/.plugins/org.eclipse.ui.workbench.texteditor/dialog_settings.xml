@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-<<<<<<< HEAD
-		<item key="selection" value="selectMenu"/>
-=======
-		<item key="selection" value="selectMo"/>
->>>>>>> main
+		<item key="selection" value=""/>
+		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
-		<item key="isRegEx" value="false"/>
-		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-<<<<<<< HEAD
-=======
-			<item value="selectmo"/>
-			<item value="selectMenuByMenu"/>
->>>>>>> main
-			<item value="selectMenu"/>
-			<item value="selectCategory"/>
-			<item value="se"/>
-			<item value="selectCate"/>
-			<item value="selectcate"/>
-			<item value="selectmenu"/>
-<<<<<<< HEAD
-			<item value="selectcategory"/>
-			<item value="modify"/>
-=======
->>>>>>> main
+			<item value="java"/>
+			<item value="cafe"/>
+			<item value="mvn"/>
+			<item value="mvnversion"/>
+			<item value="xmlns"/>
+			<item value="xml"/>
+			<item value="localRepository"/>
+			<item value="maven"/>
+			<item value="wgt"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1080"/>
-		<item key="DIALOG_Y_ORIGIN" value="228"/>
+		<item key="DIALOG_X_ORIGIN" value="1513"/>
+		<item key="DIALOG_Y_ORIGIN" value="498"/>
 		<item key="DIALOG_WIDTH" value="418"/>
 		<item key="DIALOG_HEIGHT" value="523"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
