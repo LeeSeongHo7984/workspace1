@@ -6,3 +6,5 @@ CREATE TABLE Board(
 )
 
 SELECT * FROM Board;
+
+DROP TABLE Board;

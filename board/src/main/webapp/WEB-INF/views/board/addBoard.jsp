@@ -4,20 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글 등록</title>
 </head>
-<body>
+<body style="text-align: center;">
 	<form action="addBoard" method="post">
 		<h3>게시글 작성</h3>
-		<span style="font-size: 20px; text-align: center;">제목</span>
-		<textarea name="title" maxlength="20" placeholder="제목을 입력하세요(최대 20자)">
+		<div style="width: 400px; text-align: center; font-size: 20px; font-weight: bold; margin: 0 auto;">제목</div>
+		<div>
+		<textarea name="title" maxlength="20" placeholder="제목을 입력하세요(최대 20자)" 
+					style="width: 400px; text-align: center; font-size: 20px; font-weight: bold;">
+		</textarea>
+		</div>
+		<br>
+		
+		<div style="width: 400px; text-align: center; font-size: 20px; font-weight: bold; margin: 0 auto;">내용</div>
+		<textarea name="content" maxlength="200" placeholder="내용을 입력하세요(최대 200자)"
+					style="width: 400px; height:200px; text-align: center; font-size: 20px;">
 		</textarea><br>
 		
-		<span style="font-size: 20px; text-align: center;">내용</span>
-		<textarea name="content" maxlength="200" placeholder="내용을 입력하세요(최대 200자)">
-		</textarea><br>
-		
-		<input type="submit" value="확인">
+		<input type="submit" value="확인" style="width: 100px; height: 40px; margin-top: 10px;">
 	</form>
 </body>
 </html>
