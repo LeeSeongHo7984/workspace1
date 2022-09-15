@@ -36,23 +36,21 @@ public class BoardDao {
 	public List<Board> selectBoard(String num) {
 		String sql = "SELECT * FROM Board WHERE num = ?";
 		
-		System.out.println(3);
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), num);
 	}	
 
 	// 게시글 수정
-	public List<Board> modifyBoard() {
-		String sql = "SELECT * FROM Board WHERE = no";
+	public void modifyBoard(Board board) {
+		String sql = "UPDATE Board SET title = ?, content = ? WHERE num = ?";
 		
-		return null;
+		jdbcTemplate.update(sql, board.getTitle(), board.getContent(), board.getNum());
 	}
 
-
-	
-	
-	
-	
-	
 	// 게시글 삭제
+	public void deleteBoard(String num) {
+		String sql = "DELETE FROM BOARD WHERE num = ?";
 
+		jdbcTemplate.update(sql, num);
+	}
+	
 }

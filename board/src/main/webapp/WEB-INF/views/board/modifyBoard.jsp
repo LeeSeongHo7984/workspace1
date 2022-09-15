@@ -14,19 +14,34 @@
 <title>회원정보 수정</title>
 </head>
 <body>
-
+	
+	<!-- 수정 Form -->
 	<form action="modifyBoard" method="post">
 		<c:forEach var="board" items="${boardList}">
-			<input type="text" name="no" value="${board.num}" disabled="disabled">
-			<input type="text" name="title" value="${board.title}">
-			<input type="text" name="content" value="${board.content}">
-			<input type="text" name="regDate" value="${board.regDate}" disabled="disabled">
+			<p style="margin-left: 110px;">게시글 번호</p>
+			<input type="text" name="num" value="${board.num}" readonly="readonly"
+						style="text-align: center; width: 250px; height: 30px; margin-left: 25px;"><br>
+			
+			<p style="margin-left: 140px;">제목</p>
+			<input type="text" name="title" value="${board.title}" 
+						style="text-align: center;width: 300px; height: 40px;"><br>
+			
+			<p style="margin-left: 140px;">내용</p>			
+			<input type="text" name="content" value="${board.content}" 
+						style="text-align: center; width: 300px; height: 200px;"><br>
+			
+			<input type="text" name="regDate" value="${board.regDate}" readonly="readonly"
+						style="text-align: center; margin-top: 10px; width: 300px; height: 30px;"><br>
 		</c:forEach>
-		<button type="submit" onClick="location.href='readBoard'">수정</button>
+		<button type="submit" style="width: 200px; height: 40px; margin-left: 60px; margin-top: 10px;">수정</button>
 	</form>
 	
+	<!-- 삭제 From -->
 	<form action="deleteBoard" method="post">
-		<button type="submit" onclick="location.href='readBoard'">삭제</button>
+	<c:forEach var="board" items="${boardList}">
+		<button type="submit" value="${board.num}" name="num"
+						style="width: 200px; height: 40px; margin-top: 10px; margin-left: 60px;">삭제</button>
+	</c:forEach>
 	</form>
 </body>
 </html>

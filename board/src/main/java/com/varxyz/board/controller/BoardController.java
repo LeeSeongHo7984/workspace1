@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.varxyz.board.domain.Board;
 import com.varxyz.board.service.BoardService;
@@ -63,32 +64,34 @@ public class BoardController {
 	
 	//게시글 수정 (기존 게시글 가져오기)
 	@GetMapping("/modifyBoard")
-	public String modifyBoardForm(HttpServletRequest request, Model model) {
+	public String modifyBoardForm(@RequestParam("num") String num, HttpServletRequest request, Model model) {
 		
-		String num = request.getParameter("num");
-		
-		List<Board> boardList = new ArrayList<Board>();
-		
-		boardList = boardService.selectBoard(num);
-		System.out.println(boardList);
-		model.addAttribute("boardList", boardList);
+		model.addAttribute("boardList", boardService.selectBoard(num));
 				
 		return "board/modifyBoard";
 	}
 	
 	
 	@PostMapping("/modifyBoard")
-	public String modifyBoard() {
+	public String modifyBoard(HttpServletRequest request, Model model) {
 		
-		return "board/modifyBoard";
+		Board board = new Board();
+		
+		board.setNum(request.getParameter("num"));
+		board.setTitle(request.getParameter("title"));
+		board.setContent(request.getParameter("content"));
+		
+		boardService.modifyBoard(board);
+		
+		return "redirect:/readBoard";
 	}
 	
-	
-	// 게시글 삭제
-	@GetMapping("/deleteBoard")
-	public String deleteBoardForm() {
+	@PostMapping("/deleteBoard")
+	public String deleteBoard(String num, HttpServletRequest request, Model model) {
 		
-		return "board/deleteBoard";
+		boardService.deleteBoard(num);
+		
+		return "redirect:/readBoard";
 	}
 	
 }

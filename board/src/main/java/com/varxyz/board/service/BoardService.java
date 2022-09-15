@@ -27,9 +27,9 @@ public interface BoardService {
 	public List<Board> selectBoard(String num);
 	
 	// 게시글 수정
-	public List<Board> modifyBoard();
-
+	public void modifyBoard(Board board);
 	
-	
+	// 게시글 삭제
+	public void deleteBoard(String num);
 	
 }
