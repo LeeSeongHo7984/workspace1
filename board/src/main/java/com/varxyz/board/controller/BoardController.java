@@ -21,28 +21,7 @@ public class BoardController {
 	
 	BoardService boardService = new BoardServiceImpl();
 	
-	// 게시글 등록
-	@GetMapping("/addBoard")
-	public String addBoardForm() {
-		
-		return "board/addBoard";
-	}
-	
-	@PostMapping("/addBoard")
-	public String addBoard(HttpServletRequest request, Model model) {
-		
-		Board board = new Board();
-		
-		board.setTitle(request.getParameter("title"));
-		board.setContent(request.getParameter("content"));
-		
-		boardService.addBoard(board);
-		
-		return "redirect:/readBoard";
-	}
-	
-	
-	//게시글 조회
+	// 모든 게시글 조회
 	@GetMapping("/readBoard")
 	public String readBoardForm(Model model) {
 		
@@ -62,20 +41,34 @@ public class BoardController {
 		return "redirect:/addBoard";
 	}
 	
+	// 게시판 등록 페이지
+	@GetMapping("/addBoard")
+	public String addBoardForm() {
+		
+		return "board/addBoard";
+	}
+	
+	// 게시글 등록
+	@PostMapping("/addBoard")
+	public String addBoard(Board board, HttpServletRequest request) {
+		
+		boardService.addBoard(board);
+		
+		return "redirect:/readBoard";
+	}
+	
 	//게시글 수정 (기존 게시글 가져오기)
 	@GetMapping("/modifyBoard")
-	public String modifyBoardForm(@RequestParam("num") String num, HttpServletRequest request, Model model) {
+	public String modifyBoardForm(@RequestParam("num") String num, Model model) {
 		
 		model.addAttribute("boardList", boardService.selectBoard(num));
 				
 		return "board/modifyBoard";
 	}
 	
-	
+	// 게시글 수정
 	@PostMapping("/modifyBoard")
-	public String modifyBoard(HttpServletRequest request, Model model) {
-		
-		Board board = new Board();
+	public String modifyBoard(Board board, HttpServletRequest request) {
 		
 		board.setNum(request.getParameter("num"));
 		board.setTitle(request.getParameter("title"));
@@ -86,12 +79,14 @@ public class BoardController {
 		return "redirect:/readBoard";
 	}
 	
+	// 게시글 삭제
 	@PostMapping("/deleteBoard")
-	public String deleteBoard(String num, HttpServletRequest request, Model model) {
+	public String deleteBoard(String num) {
 		
 		boardService.deleteBoard(num);
 		
 		return "redirect:/readBoard";
 	}
+	
 	
 }

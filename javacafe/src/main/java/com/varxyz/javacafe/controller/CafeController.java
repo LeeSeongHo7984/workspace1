@@ -248,9 +248,10 @@ public class CafeController {
 	}
 
 	@PostMapping("/selectMenu")
-	public String selectMenu(Menu name, HttpSession session, Model model) {
+	public String selectMenu(Menu name, Model model) {
+		
 		model.addAttribute("menuList", menuService.selectMenuByMenu(name.getName()));
-		MenuService.context.close();
+		
 
 		return "menu/select/successSelectMenu";
 	}

@@ -25,14 +25,14 @@ public class BoardDao {
 		jdbcTemplate.update(sql, board.getTitle(), board.getContent());
 	}
 
-	// 게시글 조회
+	// 게시글 목록
 	public List<Board> allReadBoard() {
 		String sql = "SELECT * FROM Board";
 
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class));
 	}
 	
-	// 번호로 게시글 조회
+	// 게시글 조회
 	public List<Board> selectBoard(String num) {
 		String sql = "SELECT * FROM Board WHERE num = ?";
 		

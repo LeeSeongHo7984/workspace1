@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page import="java.io.*, java.text.*, java.util.*" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -31,14 +31,14 @@
 		</tr>
 		<c:forEach var="board" items="${boardList}" varStatus="x">
 		<tr>
-			<td style="width: 80px;"><a href="modifyBoard?num=${board.num}"  
-										style="text-decoration: none;">${x.index+1}</a><br></td>
+			<td style="width: 80px;">
+			<a href="modifyBoard?num=${board.num}" style="text-decoration: none;">${x.index+1}</a><br></td>
 			<td style="width: 200px;">${board.title}<br></td>
 			<td style="width: 800px;">${board.content}<br></td>
 			<td style="width: 150px;">${board.regDate}<br></td>
 		</tr>
 		</c:forEach>
-	</table>	
+	</table>
 	</form>
 	
 	<form action="readBoard" method="post">

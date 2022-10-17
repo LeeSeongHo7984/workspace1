@@ -58,8 +58,8 @@
 	<c:forEach var="menu" items="${menuList}">
 	<div style="text-align: center; font-size: 30px; padding-top: 10px;"><span style="font-size: 50px;">메뉴 사진</span><br>
 	<img src="resources/img/${menu.imgName}.jpg" id="profileImg" name="file" style="width: 300px; height: 300px; margin-top: 20px; margin-bottom: 20px;" /><br></div>
-	<label>메뉴 : ${menu.name}</label><br>
-	<label>가격 : ${menu.price}</label><br>
+		<label>메뉴 : ${menu.name}</label><br>
+		<label>가격 : ${menu.price}</label><br>
 	</c:forEach>
 	</div>
 	<button type="submit" class="btn-secondary" style="margin-top: 50px;width: 250px;">예</button>

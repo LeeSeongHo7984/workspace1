@@ -33,7 +33,7 @@ public class BankingController {
 
 //	 home : 메인 페이지
 	@GetMapping("/homePage")
-	// ↓ model을 쓰는 이유는 jsp에서 el태그로 뿌려줄려고 씀
+	// ↓ model을 쓰는 이유는 jsp에서 el태그로 뿌려줄려고 씀(db 내용 가져옴)
 	public String homePageForm(HttpSession session, Model model) {
 		if(session.getAttribute("customerId") == null) {
 			return "login/login";
@@ -41,6 +41,7 @@ public class BankingController {
 		
 		// ↓ 로그인한 사람의 계좌를 통해서 기능을 쓸려고 정의해 놓은 것
 		model.addAttribute("accountNum", accountService.findAccountsByCustomerId((String)session.getAttribute("customerId")));
+		
 		return "/homePage";
 	}
 	
@@ -131,6 +132,7 @@ public class BankingController {
 	// 입금
 	@GetMapping("/account/deposit")
 	public String deposit() {
+	
 		return "account/deposit";
 	}
 
@@ -138,7 +140,6 @@ public class BankingController {
 	public String deposit(String accountNum, double amount) { // 파라미터명이랑 jsp name="" 안에 값이랑 같아야 한다
 
 		accountService.deposit(accountNum, amount);
-		AccountService.context.close();
 
 		return "account/successDeposit";
 	}
@@ -146,6 +147,7 @@ public class BankingController {
 	// 출금
 	@GetMapping("/account/withdraw")
 	public String withdraw() {
+		
 		return "account/withdraw";
 	}
 	
