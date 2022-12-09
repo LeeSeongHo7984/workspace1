@@ -24,7 +24,7 @@
 	
 	<c:if test="${userId != null }">
 	<span style="margin-left: 1000px;">${userId}님 반가워요!!!</span>
-	<button type="button" onclick="location.href='/userInfo';">상세정보</button><br>
+	<button type="button" onclick="location.href='/userInfo';">상세정보</button><br> 
 	<button type="button" onclick="location.href='/login';" 
 		style=" margin-left: 1180px; margin-top: 10px;">로그아웃</button>
 	</c:if>

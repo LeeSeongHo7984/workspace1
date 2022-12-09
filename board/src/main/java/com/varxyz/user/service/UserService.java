@@ -22,5 +22,8 @@ public interface UserService {
 	// 회원 정보
 	public List<User> readUser(String userId);
 
+	//회원 정보 수정
+	public void userModify(User user);
+
 	
 }

@@ -33,4 +33,13 @@ public class UserDao {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<User>(User.class), userId);
 	}
 
+	// 회원 정보 수정
+	public void userModify(User user) {
+		String sql = "UPDATE User SET passwd = ?, name = ?, ssn = ?, address = ?, phone = ? WHERE userId = ?";
+		
+		jdbcTemplate.update(sql, user.getPasswd(), user.getName(), user.getSsn(), 
+								user.getAddress(), user.getPhone(), user.getUserId());
+		
+	}
+
 }

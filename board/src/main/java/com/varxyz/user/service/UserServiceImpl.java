@@ -14,12 +14,21 @@ public class UserServiceImpl implements UserService {
 		userDao.addUser(user);
 	}
 
-	// 회원 정보ㄴ
+	// 회원 정보
 	@Override
 	public List<User> readUser(String userId) {
 		
 		return userDao.readUser(userId);
 	}
+
+	// 회원 정보 수정
+	@Override
+	public void userModify(User user) {
+		
+		userDao.userModify(user);
+	}
+	
+	
 	
 
 }
