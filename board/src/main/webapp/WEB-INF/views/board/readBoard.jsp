@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page import="java.io.*, java.text.*, java.util.*" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -16,7 +17,19 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/readBoard.css'/>"/>
 </head>
 <body link="black" vlink="black">
-	<form action="modifyBoard" method="post" style="text-align: center;">
+	
+	<c:if test="${userId == null}">
+		<button type="button" onclick="location.href='/login';" style="margin-left: 1200px;">로그인</button>
+	</c:if>
+	
+	<c:if test="${userId != null }">
+	<span style="margin-left: 1000px;">${userId}님 반가워요!!!</span>
+	<button type="button" onclick="location.href='/userInfo';">상세정보</button><br>
+	<button type="button" onclick="location.href='/login';" 
+		style=" margin-left: 1180px; margin-top: 10px;">로그아웃</button>
+	</c:if>
+	
+	<form action="modifyBoard" method="post" style="text-align: center; margin-top: 15px;">
 	<table border="1">
 		<tr>
 			<td colspan="4" style="text-align: center; height: 80px;">

@@ -1,8 +1,5 @@
 package com.varxyz.board.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,28 +12,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.varxyz.board.domain.Board;
 import com.varxyz.board.service.BoardService;
 import com.varxyz.board.serviceImpl.BoardServiceImpl;
+import com.varxyz.login.service.LoginService;
+import com.varxyz.login.serviceImpl.LoginServiceImpl;
+import com.varxyz.user.domain.User;
+import com.varxyz.user.service.UserService;
+import com.varxyz.user.service.UserServiceImpl;
 
 @Controller
 public class BoardController {
 	
+	LoginService loginService = new LoginServiceImpl();
+	UserService userService = new UserServiceImpl();
 	BoardService boardService = new BoardServiceImpl();
 	
 	// 모든 게시글 조회
 	@GetMapping("/readBoard")
-	public String readBoardForm(Model model) {
+	public String readBoardForm(Model model, HttpSession session) {
 		
-		List<Board> boardList = new ArrayList<Board>();
-		
-		boardList = boardService.allReadBoard();
-		
-		model.addAttribute("boardList", boardList);
+		String userId = (String)session.getAttribute("userId");
+
+		model.addAttribute("userId", userId);
+		model.addAttribute("boardList", boardService.allReadBoard());
 		
 		return "board/readBoard";
 	}
 	
 	// readBoard에서 글쓰기 버튼 누르면 넘어가는 페이지
 	@PostMapping("/readBoard")
-	public String readBoardForm() {
+	public String readBoardForm(HttpSession session, HttpServletRequest request) {
+		
+		String userId = (String)session.getAttribute("userId");
+		
+		if(userId == null) {
+			
+			request.setAttribute("msg", "로그인이 필요합니다!!!");
+			
+			return "/alert/alert";
+		}
 		
 		return "redirect:/addBoard";
 	}
@@ -59,6 +71,7 @@ public class BoardController {
 	
 	//게시글 수정 (기존 게시글 가져오기)
 	@GetMapping("/modifyBoard")
+	// @RequestParam("num")은 도메인에서 눌렀을때 가져온 데이터 이름이고 String num은 가져온 데이터를 담을 변수
 	public String modifyBoardForm(@RequestParam("num") String num, Model model) {
 		
 		model.addAttribute("boardList", boardService.selectBoard(num));

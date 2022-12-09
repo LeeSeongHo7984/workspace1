@@ -28,7 +28,7 @@ public class WebMVCConfig implements WebMvcConfigurer{
 	 */
 	
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-		registry.jsp("/WEB-INF/views/", ".jsp");
+		registry.jsp("/WEB-INF/views/",".jsp"); // "WEB-INF 앞에 /는 weeapp를 의미함
 	}
 	
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

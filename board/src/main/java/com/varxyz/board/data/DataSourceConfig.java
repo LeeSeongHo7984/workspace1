@@ -2,13 +2,14 @@ package com.varxyz.board.data;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.varxyz.board.dao.BoardDao;
+import com.varxyz.login.dao.LoginDao;
+import com.varxyz.user.dao.UserDao;
 
 @Configuration
 public class DataSourceConfig {
@@ -43,4 +44,13 @@ public class DataSourceConfig {
 		return new BoardDao(dataSource());
 	}
 	
+	@Bean
+	public LoginDao loginDao() {
+		return new LoginDao(dataSource());
+	}
+	
+	@Bean
+	public UserDao userDao() {
+		return new UserDao(dataSource());
+	}
 }
