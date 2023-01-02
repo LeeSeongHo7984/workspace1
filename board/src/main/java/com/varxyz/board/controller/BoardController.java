@@ -29,9 +29,9 @@ public class BoardController {
 	@GetMapping("/readBoard")
 	public String readBoardForm(Model model, HttpSession session) {
 		
-		String userId = (String)session.getAttribute("userId");
+//		String userId = (String)session.getAttribute("userId");
 
-		model.addAttribute("userId", userId);
+		model.addAttribute("userId", session.getAttribute("userId"));
 		model.addAttribute("boardList", boardService.allReadBoard());
 		
 		return "board/readBoard";

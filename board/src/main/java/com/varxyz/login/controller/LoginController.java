@@ -1,10 +1,9 @@
 package com.varxyz.login.controller;
 
-import java.net.http.HttpRequest;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,26 +28,39 @@ public class LoginController {
 		return "login/login";
 	}
 	
-	// 로그인시 화면 넘어가기
+	
+	// 로그인시 게시판 화면으로 넘어가기
 	@PostMapping("/login")
-	public String login(User user, HttpSession session, HttpServletRequest request) {
+	public String login(User user, Model model, HttpSession session, HttpServletRequest request) {
 		
-		User dbUser = new User();
-		dbUser = loginService.login(user.getUserId());
+		User dbUser = loginService.login(user.getUserId());
 		
-		if(user.getUserId().equals(dbUser.getUserId()) && user.getPasswd().equals(dbUser.getPasswd())) {
-
-			session.setAttribute("userId", dbUser.getUserId());
+		try {
 			
-			return "redirect:/readBoard";
-		}
-
-		request.setAttribute("msg", "아이디 또는 비밀번호를 다시 확인해 주세요!!");
+			if(user.getUserId().equals(dbUser.getUserId()) && user.getPasswd().equals(dbUser.getPasswd())) {
 		
-		return "alert/alert";
+				session.setAttribute("userId", dbUser.getUserId());
+				
+				return "redirect:/readBoard";
+			}
+			
+		} catch (EmptyResultDataAccessException e) {
+			
+			if(!user.getUserId().equals(dbUser.getUserId())) {
+			
+				model.addAttribute("msg", "아이디를 다시 확인해 주세요!!");
+			
+				// 아이디 틀릴때 안먹힘
+			return "alert/alert";
+			
+			}
+		}
+			
+			model.addAttribute("msg", "비밀번호를 다시 확인해 주세요!!");
+			
+			return "alert/alert";
 		
 	}
-
 	
 	
 }

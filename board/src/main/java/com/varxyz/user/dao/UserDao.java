@@ -41,5 +41,13 @@ public class UserDao {
 								user.getAddress(), user.getPhone(), user.getUserId());
 		
 	}
+	
+	// 회원 탈퇴
+	public void userDelete(String userId) {
+		String sql = "DELETE FROM User where userId = ?";
+		
+		jdbcTemplate.update(sql, userId);
+		
+	}
 
 }

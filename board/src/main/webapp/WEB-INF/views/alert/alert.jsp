@@ -5,7 +5,7 @@
 		var msg = "<c:out value='${msg}'/>";
 		var url = "<c:out value='${url}'/>";
 		alert(msg);
-		location.href = url;
+		location.href = history.back();
 	</script>
 <html>
 <head>

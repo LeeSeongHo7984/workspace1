@@ -28,11 +28,20 @@ public class UserController {
 	}
 	
 	@PostMapping("/addUser")
-	public String addUser(User user) {
+	public String addUser(User user, Model model) {
+		
+		List<User> userId = userService.readUser(user.getUserId());
+		
+		if(userId.size() > 0) {
+			
+			model.addAttribute("msg", "중복된 아이디 입니다.");
+			
+			return "alert/alert";
+		}
 		
 		userService.addUser(user);
 		
-		return "redirect:/login";
+		return "login/login";
 	}
 	
 	// 회원 정보
@@ -75,6 +84,17 @@ public class UserController {
 //		user.setPhone(request.getParameter("phone"));
 		
 		return "redirect:/readBoard";
+	}
+	
+	// 회원 탈퇴
+	@PostMapping("userDelete") 
+	public String userDelete(HttpSession session, Model model) {
+		
+		String userId = (String) session.getAttribute("userId");
+		
+		userService.userDelete(userId);
+		
+		return "login/login";
 	}
 	
 	
